@@ -1,0 +1,54 @@
+{
+  "root": "packages/docs",
+  "sourceRoot": "packages/docs",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "packages/docs",
+        "outputPath": "dist/packages/docs"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "docs:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "docs:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "docs:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/docs"],
+      "options": {
+        "jestConfig": "packages/docs/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/docs/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": ["docs", "apps"]
+}
