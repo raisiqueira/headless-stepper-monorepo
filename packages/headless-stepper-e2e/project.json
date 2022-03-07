@@ -1,0 +1,28 @@
+{
+  "root": "packages/headless-stepper-e2e",
+  "sourceRoot": "packages/headless-stepper-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "packages/headless-stepper-e2e/cypress.json",
+        "devServerTarget": "headless-stepper:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "headless-stepper:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/headless-stepper-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["headless-stepper"]
+}

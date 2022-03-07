@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "headless-stepper": "packages/headless-stepper",
+    "headless-stepper-e2e": "packages/headless-stepper-e2e"
+  }
 }
