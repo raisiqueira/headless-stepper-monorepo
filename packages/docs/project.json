@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/next:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "root": "packages/docs",
@@ -16,10 +18,10 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/next:server",
+      "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "buildTarget": "docs:build",
-        "dev": true
+        "command": "npx next dev",
+        "cwd": "packages/docs"
       },
       "configurations": {
         "production": {
@@ -36,7 +38,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/docs"],
+      "outputs": [
+        "coverage/packages/docs"
+      ],
       "options": {
         "jestConfig": "packages/docs/jest.config.js",
         "passWithNoTests": true
@@ -44,11 +48,18 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/docs/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "packages/docs/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     }
   },
-  "tags": ["docs", "apps"]
+  "tags": [
+    "docs",
+    "apps"
+  ]
 }

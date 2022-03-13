@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import '../styles/global.css';
 import 'nextra-theme-docs/style.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {

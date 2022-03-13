@@ -1,26 +1,36 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  projectLink: 'https://github.com/shuding/nextra', // GitHub link in the navbar
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master', // base URL for the docs repository
-  titleSuffix: ' – Nextra',
+  projectLink: 'https://github.com/raisiqueira/headless-stepper-monorepo',
+  docsRepositoryBase:
+    'https://github.com/raisiqueira/headless-stepper-monorepo',
+  titleSuffix: ' – Headless Stepper',
   nextLinks: true,
   prevLinks: true,
   search: true,
   customSearch: null, // customizable, you can use algolia for example
   darkMode: true,
   footer: true,
-  footerText: `MIT ${new Date().getFullYear()} © Shu Ding.`,
+  footerText: `MIT ${new Date().getFullYear()} © Raí Siqueira.`,
   footerEditLink: `Edit this page on GitHub`,
+  unstable_stork: false,
+  unstable_flexsearch: true,
   logo: (
     <>
       <svg>...</svg>
-      <span>Next.js Static Site Generator</span>
+      <span>Headless Stepper</span>
     </>
   ),
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Nextra: the next docs builder" />
-      <meta name="og:title" content="Nextra: the next docs builder" />
+      <meta
+        name="description"
+        content="Headless Stepper: Production ready React hook to create awesome stepper components. Effortless to use, easy to customize."
+      />
+      <meta
+        name="og:title"
+        content="Headless Stepper: Production ready React hook to create awesome stepper components. Effortless to use, easy to customize."
+      />
     </>
   ),
 };
