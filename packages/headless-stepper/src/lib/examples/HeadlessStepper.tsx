@@ -19,9 +19,20 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
     ],
     []
   );
-  const { state, nextStep, prevStep, progressProps } = useStepper({ steps });
+  const { state, nextStep, prevStep, progressProps, stepsProps } = useStepper({
+    steps,
+  });
   return (
     <div className={styles['container']}>
+      <div>
+        <nav style={{ display: 'flex' }}>
+          {stepsProps?.map((step, index) => (
+            <ol key={index}>
+              <a {...step}>{steps[index].label}</a>
+            </ol>
+          ))}
+        </nav>
+      </div>
       <p>Current step: {state.currentStep}</p>
       <button
         className="py-4 px-3 bg-blue-300"

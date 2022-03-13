@@ -31,6 +31,11 @@
             "glob": "packages/headless-stepper/LICENSE",
             "input": ".",
             "output": "."
+          },
+          {
+            "glob": "packages/headless-stepper/.npmignore",
+            "input": ".",
+            "output": "."
           }
         ]
       }
