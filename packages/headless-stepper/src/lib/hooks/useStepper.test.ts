@@ -49,6 +49,7 @@ describe('useStepper', () => {
     act(() => {
       result.current?.prevStep();
     });
+
     expect(result?.current?.state?.currentStep).toBe(0);
     expect(result?.current?.state?.hasPreviousStep).toBeFalsy();
   });

@@ -19,13 +19,14 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
     ],
     []
   );
-  const { state, nextStep, prevStep, progressProps, stepsProps } = useStepper({
-    steps,
-  });
+  const { state, nextStep, prevStep, progressProps, stepsProps, stepperProps } =
+    useStepper({
+      steps,
+    });
   return (
     <div className={styles['container']}>
       <div>
-        <nav style={{ display: 'flex' }}>
+        <nav style={{ display: 'flex' }} {...stepperProps}>
           {stepsProps?.map((step, index) => (
             <ol key={index}>
               <a {...step}>{steps[index].label}</a>

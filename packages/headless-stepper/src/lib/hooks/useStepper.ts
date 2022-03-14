@@ -1,7 +1,7 @@
 import React from 'react';
 import type { HTMLAttributes, KeyboardEvent } from 'react';
 import { useId } from './useId';
-import type { Steps } from '../types';
+import type { Steps, StepperOrientation } from '../types';
 
 /**
  * Props for build stepper.
@@ -11,6 +11,8 @@ type StepperProps = {
   steps: Steps[];
   /** Current step selected. */
   currentStep?: number;
+  /** Orientation. Default is horizontal. */
+  orientation?: StepperOrientation;
 };
 
 /**
@@ -30,6 +32,8 @@ type StepperState = {
  * Hook to use stepper.
  */
 type UseStepper = {
+  /** Props to use into any React element to represent the stepper. */
+  stepperProps: HTMLAttributes<HTMLElement>;
   /** Props to use into any React Element to represent the steps. */
   stepsProps: HTMLAttributes<HTMLElement>[];
   /** props to use into a HTMLElement to represents a progress bar. */
@@ -42,9 +46,13 @@ type UseStepper = {
   prevStep: () => void;
 };
 
-const useStepper = (props: StepperProps): UseStepper => {
-  const { steps, currentStep } = props;
+const useStepper = ({
+  orientation = 'horizontal',
+  ...rest
+}: StepperProps): UseStepper => {
+  const { steps, currentStep } = rest;
   // IDs
+  const stepperId = useId();
   const progressId = useId();
   const labelId = `${useId()}-label`;
   // States & Ref's
@@ -94,19 +102,34 @@ const useStepper = (props: StepperProps): UseStepper => {
     []
   );
 
+  // build the stepper props.
+  const stepperProps: HTMLAttributes<HTMLElement> = React.useMemo(
+    () => ({
+      role: 'tablist',
+      'aria-orientation': orientation,
+    }),
+    [orientation]
+  );
+
   // Build the steps props.
   const stepsProps = React.useMemo(() => {
+    // TODO: Maybe return aria-controls?
     return steps?.map((step, index) => {
       return {
+        role: 'tab',
         tabIndex: index === _currentStep ? 0 : -1,
-        onKeyDown: (event) => handleKeydown(event, index),
-        'aria-current': index === _currentStep ? 'step' : undefined,
+        id: `${stepperId}-${index}`,
+        'aria-posinset': index + 1,
+        'aria-setsize': steps.length,
         'aria-disabled': step?.disabled,
+        'aria-current': index === _currentStep ? 'step' : undefined,
+        'aria-selected': index === _currentStep,
+        onKeyDown: (event) => handleKeydown(event, index),
         ref: (element: HTMLElement) =>
           (stepElementsRef.current[index] = element),
       } as HTMLAttributes<HTMLElement>;
     });
-  }, [_currentStep, handleKeydown, steps]);
+  }, [_currentStep, handleKeydown, stepperId, steps]);
 
   // build the progress bar props.
   const progressProps = React.useMemo<HTMLAttributes<HTMLElement>>(
@@ -133,6 +156,7 @@ const useStepper = (props: StepperProps): UseStepper => {
   );
 
   return {
+    stepperProps,
     stepsProps,
     progressProps,
     state,
