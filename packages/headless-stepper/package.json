@@ -1,5 +1,6 @@
 {
   "name": "headless-stepper",
+  "description": "Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.",
   "version": "0.1.0",
   "license": "MIT",
   "author": {

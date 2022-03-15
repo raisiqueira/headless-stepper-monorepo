@@ -14,12 +14,6 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   unstable_stork: false,
   unstable_flexsearch: true,
-  logo: (
-    <>
-      <svg>...</svg>
-      <span>Headless Stepper</span>
-    </>
-  ),
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />

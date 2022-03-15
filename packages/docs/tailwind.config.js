@@ -1,10 +1,18 @@
-const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
-const { join } = require('path');
+// const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
+// const { join } = require('path');
 
 module.exports = {
   content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,tsx,html}'),
-    ...createGlobPatternsForDependencies(__dirname),
+    './components/**/*.js',
+    './components/**/*.tsx',
+    './nextra-theme-docs/**/*.js',
+    './nextra-theme-docs/**/*.tsx',
+    './nextra-theme-docs/**/*.css',
+    './pages/**/*.md',
+    './pages/**/*.mdx',
+    './pages/**/*.tsx',
+    './theme.config.js',
+    './styles.css',
   ],
   theme: {
     extend: {},
