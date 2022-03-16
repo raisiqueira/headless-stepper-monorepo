@@ -1,0 +1,92 @@
+---
+title: Quick Start
+---
+
+import Callout from 'nextra-theme-docs/callout';
+import BasicExample from '../../components/examples/Basic';
+
+# Using Headless Stepper
+
+Create a component that will use Headless Stepper is too easy. Basically, you need to import the hook and create an instance to all objects that we need, or you can destructure the props that the `useStepper()` hook returns.
+
+You, as developer, are responsible for rendering the UI. This guide will show you how to use the hook and how to render the UI (without styles).
+
+## Starting from the basic
+
+When thinking about a stepper component, you imagine something with labels, and buttons to trigger an action and go to the next step, so,let's see how to use the hook in a simple case.
+
+First of all, we need to import the hook.
+
+```tsx
+import { useStepper } from 'headless-stepper';
+```
+
+Now, let's create the steps:
+
+```tsx
+const steps = React.useMemo(
+  () => [
+    {
+      label: 'Step 1',
+    },
+    { label: 'Step 2' },
+    { label: 'Step 3' },
+    { label: 'Step 4', disabled: true },
+    { label: 'Step 5' },
+    { label: 'Step 6' },
+  ],
+  []
+);
+```
+
+<Callout type="warning" emoji="⚠️">
+  We're using `React.useMemo` to avoid `useStepper` doesn't recalculate on every
+  single render. Only when the memoized value actually changes!
+</Callout>
+
+## Using the `useStepper()` hook
+
+Now that you have the steps, you can use the `useStepper()` hook to create the stepper.
+
+```tsx
+const stepperInstance = useStepper({ steps });
+```
+
+Or, if you want to destructure the props, you can do it like this:
+
+```tsx
+const { state, nextStep, prevStep, progressProps, stepsProps, stepperProps } =
+  useStepper({ steps });
+```
+
+As you can see, the hook receives an object with the steps list. These steps list might be a simple array of objects. Now, let's build the UI.
+
+## Building the UI
+
+```tsx
+return (
+  <div>
+    <div>
+      <nav style={{ display: 'flex' }} {...stepperProps}>
+        {stepsProps?.map((step, index) => (
+          <ol key={index}>
+            <a {...step}>{steps[index].label}</a>
+          </ol>
+        ))}
+      </nav>
+    </div>
+    <p>Current step: {state.currentStep}</p>
+    <button onClick={prevStep} disabled={!state.hasPreviousStep}>
+      Prev
+    </button>
+    <button onClick={nextStep}>Next</button>
+    <div {...progressProps} />
+  </div>
+);
+```
+
+And, this is the final result:
+
+<br />
+
+<BasicExample />

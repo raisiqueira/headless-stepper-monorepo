@@ -1,0 +1,63 @@
+---
+title: useStepper()
+---
+
+# API Overview for `useStepper()`
+
+Headless Stepper uses React hook under the hood, and externaly for lifecycle management.
+
+## `useStepper(StepperProps): UseStepper`
+
+### `StepperProps`
+
+<br />
+
+| Parameter     | Type                 | Description                                                 | Required | Default      |
+| ------------- | -------------------- | ----------------------------------------------------------- | -------- | ------------ |
+| `steps`       | `Steps[]`            | Steps that compound the stepper.                            | `true`   | `undefined`  |
+| `currentStep` | `number`             | Current step of the stepper.                                | `false`  | `0`          |
+| `orientation` | `StepperOrientation` | Stepper orientation (used only for the `ARIA-ORIENTATION`). | `false`  | `horizontal` |
+
+### `UseStepper`
+
+<br />
+
+| Parameter       | Type                                  | Description                                                          | Required | Default |
+| --------------- | ------------------------------------- | -------------------------------------------------------------------- | -------- | ------- |
+| `stepperProps`  | `React.HTMLAttributes<HTMLElement>`   | Props to use into any React element to represent the stepper.        | `-`      | `-`     |
+| `stepsProps`    | `React.HTMLAttributes<HTMLElement>[]` | Props to use into any React Element to represent the steps.          | `-`      | `-`     |
+| `progressProps` | `React.HTMLAttributes<HTMLElement>`   | props to use into a HTMLElement to represents a progress bar.        | `-`      | `-`     |
+| `state`         | `StepperState`                        | the stepper state with current step, disabled steps and other props. | `-`      | `-`     |
+| `nextStep()`    | `() => void`                          | Trigger the next step.                                               | `-`      | `-`     |
+| `prevStep`      | `() => void`                          | Trigger the previous step.                                           | `-`      | `-`     |
+
+## Misc types
+
+Other types exported by this package are:
+
+### `Steps`
+
+<br />
+
+| Parameter  | Type      | Description                    | Required | Default |
+| ---------- | --------- | ------------------------------ | -------- | ------- |
+| `label`    | `string`  | Label to display. Ex.: Step 04 | `true`   | `-`     |
+| `disabled` | `boolean` | Enable/disable step.           | `-`      | `-`     |
+| `isValid`  | `boolean` | Check if a step is valid.      | `-`      | `-`     |
+
+### `StepperState`
+
+<br />
+
+| Parameter         | Type      | Description                                                                   | Required | Default |
+| ----------------- | --------- | ----------------------------------------------------------------------------- | -------- | ------- |
+| `currentStep`     | `number`  | The current step selected                                                     | `-`      | `-`     |
+| `progressId`      | `string`  | Unique ID to the progress bar.                                                | `-`      | `-`     |
+| `labelId`         | `string`  | These ID you can use with a span element to represent the progress bar label. | `-`      | `-`     |
+| `hasPreviousStep` | `boolean` | Check if has previuos step.                                                   | `-`      | `-`     |
+
+### `StepperOrientation`
+
+This type represents the orientation of the stepper and is only used to tell to the `ARIA-ORIENTATION` value.
+
+Can be `horizontal` or `vertical`.
