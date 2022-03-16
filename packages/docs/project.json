@@ -4,13 +4,14 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/next:build",
+      "executor": "@nrwl/workspace:run-commands",
       "outputs": [
         "{options.outputPath}"
       ],
       "defaultConfiguration": "production",
       "options": {
-        "root": "packages/docs",
+        "command": "npx next build",
+        "cwd": "packages/docs",
         "outputPath": "dist/packages/docs"
       },
       "configurations": {
