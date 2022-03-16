@@ -10,7 +10,7 @@
       ],
       "defaultConfiguration": "production",
       "options": {
-        "command": "npx next build",
+        "command": "next build",
         "cwd": "packages/docs",
         "outputPath": "dist/packages/docs"
       },
@@ -21,7 +21,7 @@
     "serve": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "npx next dev",
+        "command": "next dev",
         "cwd": "packages/docs"
       },
       "configurations": {
