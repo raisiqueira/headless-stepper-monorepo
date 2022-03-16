@@ -14,6 +14,13 @@ export default {
   footerEditLink: `Edit this page on GitHub`,
   unstable_stork: false,
   unstable_flexsearch: true,
+  logo: () => (
+    <>
+      <span className="mr-2 font-extrabold hidden md:inline">
+        Headless Stepper
+      </span>
+    </>
+  ),
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
