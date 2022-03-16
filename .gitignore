@@ -40,3 +40,6 @@ Thumbs.db
 
 # Next
 .next
+
+# Local Netlify folder
+.netlify
