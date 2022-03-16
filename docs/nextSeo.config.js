@@ -13,7 +13,7 @@ const defaultSEOConfig = {
       'Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.',
     images: [
       {
-        url: '/GH_Cover.png',
+        url: 'https://headless-stepper.netlify.app/GH_Cover.png',
         alt: 'Headless Stepper og-image',
       },
     ],
