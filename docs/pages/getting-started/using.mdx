@@ -90,3 +90,19 @@ And, this is the final result:
 <br />
 
 <BasicExample />
+
+## Accessibility notes
+
+The stepper props that `useStepper()` hook returns is treated as a tab component with the `role="tablist"` for the steps wrapper, and `role="tab"` for each step.
+
+Inspect the above example and you'll see that the `aria-selected` attribute is set to `true` for the current step.
+
+### Keyboard interaction
+
+| Keyboard key | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `Tab`        | Focus on first step or focus on the current step |
+| `ArrowLeft`  | Go to previous step.                             |
+| `ArrowRight` | Go to next step.                                 |
+| `Enter`      | Select the focused step.                         |
+| `Space`      | Select the focused step.                         |

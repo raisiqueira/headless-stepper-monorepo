@@ -2,6 +2,10 @@
 
 Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.
 
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/headless-stepper?style=flat-square)
+
+| [Documentation](https://headless-stepper.netlify.app/) | [Issues](https://github.com/raisiqueira/headless-stepper-monorepo/issues)
+
 ## Quick features
 
 - Headless.
