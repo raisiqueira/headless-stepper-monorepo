@@ -1,11 +1,15 @@
 {
   "name": "headless-stepper",
   "description": "Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.",
-  "version": "0.2.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": {
     "name": "Raí Siqueira",
     "email": "me@raisiqueira.dev"
+  },
+  "repository": "https://github.com/raisiqueira/headless-stepper-monorepo",
+  "bugs": {
+    "url": "https://github.com/raisiqueira/headless-stepper-monorepo/issues"
   },
   "peerDependencies": {
     "react": ">=16.8.0 || >=17.0.0 || >= 18.0.0",

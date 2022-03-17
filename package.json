@@ -7,6 +7,7 @@
     "dev:docs": "nx serve docs",
     "build:lib": "nx build headless-stepper",
     "nx": "nx",
+    "np": "np",
     "publish:prod": "npm publish",
     "publish:dev": "npm run build:lib && npm publish --tag next"
   },
