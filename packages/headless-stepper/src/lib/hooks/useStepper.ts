@@ -52,8 +52,11 @@ const useStepper = ({
 }: StepperProps): UseStepper => {
   const { steps, currentStep } = rest;
   // IDs
+  // @ts-ignore
   const stepperId = useId();
+  // @ts-ignore
   const progressId = useId();
+  // @ts-ignore
   const labelId = `${useId()}-label`;
   // States & Ref's
   const [_currentStep, setCurrentStep] = React.useState(currentStep ?? 0);
