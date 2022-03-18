@@ -2,7 +2,7 @@
 export default {
   projectLink: 'https://github.com/raisiqueira/headless-stepper-monorepo',
   docsRepositoryBase:
-    'https://github.com/raisiqueira/headless-stepper-monorepo/tree/main/packages/docs/pages',
+    'https://github.com/raisiqueira/headless-stepper-monorepo/tree/main/docs/pages',
   titleSuffix: ' – Headless Stepper',
   nextLinks: true,
   prevLinks: true,
