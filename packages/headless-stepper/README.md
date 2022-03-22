@@ -80,7 +80,7 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
 export default HeadlessStepper;
 ```
 
-More examples will be available on documentation.
+More examples on the [documentation](https://headless-stepper.netlify.app/).
 
 ## Contribute
 

@@ -42,7 +42,11 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
       >
         Prev
       </button>
-      <button className="py-4 px-3 bg-blue-300" onClick={nextStep}>
+      <button
+        className="py-4 px-3 bg-blue-300"
+        onClick={nextStep}
+        disabled={!state?.hasNextStep}
+      >
         Next
       </button>
       <div className="bg-gray-400 w-100% h-1/2" {...progressProps} />

@@ -53,4 +53,18 @@ describe('useStepper', () => {
     expect(result?.current?.state?.currentStep).toBe(0);
     expect(result?.current?.state?.hasPreviousStep).toBeFalsy();
   });
+
+  it('should check if has not next step', () => {
+    const { result } = renderHook(() => useStepper({ steps }));
+    const { state } = result.current;
+    expect(state?.hasNextStep).toBeTruthy();
+    expect(state?.hasPreviousStep).toBeFalsy();
+
+    act(() => {
+      result.current?.nextStep();
+    });
+
+    expect(result?.current?.state?.hasNextStep).toBeFalsy();
+    expect(result?.current?.state?.hasPreviousStep).toBeTruthy();
+  });
 });
