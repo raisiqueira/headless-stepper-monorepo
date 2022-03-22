@@ -105,5 +105,3 @@ The Storybook will be available on the localhost:4400 and refresh when you chang
 ## License
 
 MIT @ Raí Siqueira.
-
-> WIP

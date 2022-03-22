@@ -49,7 +49,7 @@ const Sandbox = () => {
   return (
     <SandpackRunner
       template="react-ts"
-      customSetup={{ dependencies: { 'headless-stepper': 'beta' } }}
+      customSetup={{ dependencies: { 'headless-stepper': 'latest' } }}
       code={code}
     />
   );
