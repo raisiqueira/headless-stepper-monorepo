@@ -24,8 +24,10 @@ type StepperState = {
   progressId: string;
   /** These ID you can use with a span element to represent the progress bar label. */
   labelId: string;
-  /** check if has previuos step */
+  /** Check if has previuos step. */
   hasPreviousStep?: boolean;
+  /** Check if has next step. */
+  hasNextStep?: boolean;
 };
 
 /**
@@ -58,12 +60,16 @@ const useStepper = ({
   // States & Ref's
   const [_currentStep, setCurrentStep] = React.useState(currentStep ?? 0);
   const hasPreviousStep = React.useRef(false);
+  const hasNextStep = React.useRef(false);
   const stepElementsRef = React.useRef<HTMLElement[]>([]);
   const currentStepFocused = React.useRef<number | null>(null);
 
   // Check previous step
   hasPreviousStep.current = _currentStep < steps.length - 1;
   hasPreviousStep.current = _currentStep > 0;
+
+  // Check next step
+  hasNextStep.current = _currentStep < steps.length - 1;
 
   // Handlers
   const nextStep = React.useCallback(() => {
@@ -152,6 +158,7 @@ const useStepper = ({
       progressId: progressId as string,
       currentStep: _currentStep,
       hasPreviousStep: hasPreviousStep.current,
+      hasNextStep: hasNextStep.current,
     }),
     [progressId, labelId, _currentStep]
   );
