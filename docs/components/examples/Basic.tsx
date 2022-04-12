@@ -43,6 +43,10 @@ const Sandbox = () => {
         </button>
         <button onClick={nextStep}>Next</button>
         <div {...progressProps} />
+        <p>State:</p>
+        <pre style={{backgroundColor: '#f2f2f2'}}>
+          {JSON.stringify(state, null, 2)}
+        </pre>
       </div>
     );
   }`;

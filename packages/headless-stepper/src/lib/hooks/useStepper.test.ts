@@ -67,4 +67,10 @@ describe('useStepper', () => {
     expect(result?.current?.state?.hasNextStep).toBeFalsy();
     expect(result?.current?.state?.hasPreviousStep).toBeTruthy();
   });
+
+  it('should return the total of steps', () => {
+    const { result } = renderHook(() => useStepper({ steps }));
+    const { state } = result.current;
+    expect(state?.totalSteps).toBe(steps.length);
+  });
 });

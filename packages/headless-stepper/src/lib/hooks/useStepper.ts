@@ -19,6 +19,7 @@ type StepperProps = {
  * Types for the stepper state.
  */
 type StepperState = {
+  /** returns the current step. */
   currentStep: number;
   /** Unique ID to the progress bar. */
   progressId: string;
@@ -28,6 +29,8 @@ type StepperState = {
   hasPreviousStep?: boolean;
   /** Check if has next step. */
   hasNextStep?: boolean;
+  /** returns the total steps. */
+  totalSteps: number;
 };
 
 /**
@@ -63,6 +66,7 @@ const useStepper = ({
   const hasNextStep = React.useRef(false);
   const stepElementsRef = React.useRef<HTMLElement[]>([]);
   const currentStepFocused = React.useRef<number | null>(null);
+  const totalSteps = React.useRef(steps.length);
 
   // Check previous step
   hasPreviousStep.current = _currentStep < steps.length - 1;
@@ -159,6 +163,7 @@ const useStepper = ({
       currentStep: _currentStep,
       hasPreviousStep: hasPreviousStep.current,
       hasNextStep: hasNextStep.current,
+      totalSteps: totalSteps.current,
     }),
     [progressId, labelId, _currentStep]
   );
