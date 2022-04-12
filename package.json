@@ -11,7 +11,9 @@
     "publish:prod": "npm publish",
     "publish:dev": "npm run build:lib && npm publish --tag next",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "test": "npm run nx run headless-stepper:test",
+    "test:watch": "npm run nx run headless-stepper:test -- --watch"
   },
   "private": true,
   "devDependencies": {
