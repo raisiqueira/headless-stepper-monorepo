@@ -1,5 +1,7 @@
+import type { HTMLAttributes as ReactHTMLAttributes } from 'react';
+
 /** Type for steps. */
-type Steps = {
+export type Steps = {
   /** Label to display. Ex.: Step 04 */
   label: string;
   /** Enable/disable step. */
@@ -9,22 +11,55 @@ type Steps = {
 };
 
 /** Steps Direction for ARIA. */
-type StepperDirection = 'ltr' | 'rtl';
+export type StepperDirection = 'ltr' | 'rtl';
 
 /** Step orientation for ARIA. */
-type StepperOrientation = 'horizontal' | 'vertical';
+export type StepperOrientation = 'horizontal' | 'vertical';
 
-type StepperContextType = {
-  /** Steps that compound the stepper. Default is a empty list. */
+/**
+ * Props for build stepper.
+ */
+export type StepperProps = {
+  /** List of steps. */
   steps: Steps[];
-  /** Current step. Default is 0. */
-  currentStep: number;
-  /** Stepper orientation (vertical or horizontal). Default is horizontal. */
+  /** Current step selected. */
+  currentStep?: number;
+  /** Orientation. Default is horizontal. */
   orientation?: StepperOrientation;
-  /** Stepper direction (ltr or rtl). Default is ltr. */
-  direction?: StepperDirection;
-  /** Trigger an onChange with the current step. */
-  onChange?: (index: number) => void | undefined;
 };
 
-export { StepperContextType, StepperOrientation, StepperDirection, Steps };
+/**
+ * Types for the stepper state.
+ */
+export type StepperState = {
+  /** returns the current step. */
+  currentStep: number;
+  /** Unique ID to the progress bar. */
+  progressId: string;
+  /** These ID you can use with a span element to represent the progress bar label. */
+  labelId: string;
+  /** Check if has previuos step. */
+  hasPreviousStep?: boolean;
+  /** Check if has next step. */
+  hasNextStep?: boolean;
+  /** returns the total steps. */
+  totalSteps: number;
+};
+
+/**
+ * Hook to use stepper.
+ */
+export type UseStepper = {
+  /** Props to use into any React element to represent the stepper. */
+  stepperProps: ReactHTMLAttributes<HTMLElement>;
+  /** Props to use into any React Element to represent the steps. */
+  stepsProps: ReactHTMLAttributes<HTMLElement>[];
+  /** props to use into a HTMLElement to represents a progress bar. */
+  progressProps: ReactHTMLAttributes<HTMLElement>;
+  /** the stepper state with current step, disabled steps and other props. */
+  state: StepperState;
+  /** Next step */
+  nextStep: () => void;
+  /** Previous step */
+  prevStep: () => void;
+};

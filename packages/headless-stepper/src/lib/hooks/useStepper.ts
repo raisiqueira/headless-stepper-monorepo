@@ -1,55 +1,7 @@
 import React from 'react';
 import type { HTMLAttributes, KeyboardEvent } from 'react';
 import { useId } from './useId';
-import type { Steps, StepperOrientation } from '../types';
-
-/**
- * Props for build stepper.
- */
-type StepperProps = {
-  /** List of steps. */
-  steps: Steps[];
-  /** Current step selected. */
-  currentStep?: number;
-  /** Orientation. Default is horizontal. */
-  orientation?: StepperOrientation;
-};
-
-/**
- * Types for the stepper state.
- */
-type StepperState = {
-  /** returns the current step. */
-  currentStep: number;
-  /** Unique ID to the progress bar. */
-  progressId: string;
-  /** These ID you can use with a span element to represent the progress bar label. */
-  labelId: string;
-  /** Check if has previuos step. */
-  hasPreviousStep?: boolean;
-  /** Check if has next step. */
-  hasNextStep?: boolean;
-  /** returns the total steps. */
-  totalSteps: number;
-};
-
-/**
- * Hook to use stepper.
- */
-type UseStepper = {
-  /** Props to use into any React element to represent the stepper. */
-  stepperProps: HTMLAttributes<HTMLElement>;
-  /** Props to use into any React Element to represent the steps. */
-  stepsProps: HTMLAttributes<HTMLElement>[];
-  /** props to use into a HTMLElement to represents a progress bar. */
-  progressProps: HTMLAttributes<HTMLElement>;
-  /** the stepper state with current step, disabled steps and other props. */
-  state: StepperState;
-  /** Next step */
-  nextStep: () => void;
-  /** Previous step */
-  prevStep: () => void;
-};
+import type { StepperProps, UseStepper } from '../types';
 
 const useStepper = ({
   orientation = 'horizontal',
@@ -178,11 +130,4 @@ const useStepper = ({
   };
 };
 
-export {
-  useStepper,
-  StepperProps,
-  StepperState,
-  UseStepper,
-  // Reexport internal types
-  Steps,
-};
+export { useStepper };
