@@ -1,4 +1,7 @@
-import type { HTMLAttributes as ReactHTMLAttributes } from 'react';
+import type {
+  HTMLAttributes as ReactHTMLAttributes,
+  ElementType as ReactElementType,
+} from 'react';
 
 /** Type for steps. */
 export type Steps = {
@@ -62,4 +65,13 @@ export type UseStepper = {
   nextStep: () => void;
   /** Previous step */
   prevStep: () => void;
+};
+
+/**
+ * Type for a component with as Props.
+ */
+export type ComponentWithAsProps<
+  As extends ReactElementType = ReactElementType
+> = {
+  as?: As;
 };
