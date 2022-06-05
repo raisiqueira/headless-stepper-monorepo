@@ -80,7 +80,11 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
 export default HeadlessStepper;
 ```
 
-More examples on the [documentation](https://headless-stepper.netlify.app/).
+More examples will be available on documentation.
+
+## Running unit tests
+
+Run `nx test headless-stepper` to execute the unit tests via [Jest](https://jestjs.io).
 
 ## Contribute
 
@@ -97,6 +101,10 @@ The Storybook will be available on the localhost:4400 and refresh when you chang
 ## Next steps
 
 - Expose the headless components instead of only the `useStepper` hook.
+
+## Sponsors
+
+[![Sponsors](https://github.com/raisiqueira/headless-stepper-monorepo/blob/HEAD/sponsorkit/sponsors.svg)](https://headless-stepper.netlify.app/sponsors)
 
 ## License
 

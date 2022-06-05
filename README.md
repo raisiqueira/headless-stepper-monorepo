@@ -102,6 +102,10 @@ The Storybook will be available on the localhost:4400 and refresh when you chang
 
 - Expose the headless components instead of only the `useStepper` hook.
 
+## Sponsors
+
+[![Sponsors](https://github.com/raisiqueira/headless-stepper-monorepo/blob/HEAD/sponsorkit/sponsors.svg)](https://headless-stepper.netlify.app/sponsors)
+
 ## License
 
 MIT @ Raí Siqueira.
