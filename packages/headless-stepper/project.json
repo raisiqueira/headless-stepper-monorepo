@@ -36,11 +36,6 @@
             "glob": "packages/headless-stepper/.npmignore",
             "input": ".",
             "output": "."
-          },
-          {
-            "glob": "packages/headless-stepper/sponsorkit",
-            "input": ".",
-            "output": "."
           }
         ]
       }

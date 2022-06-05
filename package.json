@@ -4,18 +4,19 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx run headless-stepper:storybook",
-    "dev:docs": "nx serve docs",
-    "prebuild": "cp -r ./sponsorkit ./README.md ./packages/headless-stepper",
+    "dev:docs": "cd docs && npm run dev",
+    "prebuild": "cp -r ./README.md ./packages/headless-stepper",
     "build:lib": "npm run prebuild && nx build headless-stepper",
     "nx": "nx",
     "np": "np",
-    "publish:prod": "cd ./packages/headless-stepper && npm publish",
+    "publish:prod": "npm run build:lib && cd ./packages/headless-stepper && npm publish",
     "publish:dev": "npm run build:lib && cd ./packages/headless-stepper && npm publish --tag next",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "test": "npm run nx run headless-stepper:test",
     "test:watch": "npm run nx run headless-stepper:test -- --watch",
-    "sponsorkit": "sponsorkit"
+    "sponsorkit": "sponsorkit",
+    "postinstall": "(cd docs && npm install)"
   },
   "private": true,
   "devDependencies": {
