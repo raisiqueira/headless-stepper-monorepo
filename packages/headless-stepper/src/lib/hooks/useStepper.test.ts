@@ -73,4 +73,16 @@ describe('useStepper', () => {
     const { state } = result.current;
     expect(state?.totalSteps).toBe(steps.length);
   });
+
+  fit('should set current step to 3', async () => {
+    const { result } = renderHook(() => useStepper({ steps }));
+    expect(result?.current?.state?.currentStep).toBe(0);
+
+    act(() => {
+      result.current?.setStep(3);
+    });
+
+    expect(result?.current?.state?.currentStep).toBe(3);
+    expect(result?.current?.state?.hasPreviousStep).toBeTruthy();
+  });
 });
