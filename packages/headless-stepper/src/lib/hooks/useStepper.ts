@@ -49,6 +49,8 @@ type UseStepper = {
   nextStep: () => void;
   /** Previous step */
   prevStep: () => void;
+  /** Choise a step to go to. */
+  setStep: (step: number) => void;
 };
 
 const useStepper = ({
@@ -175,6 +177,7 @@ const useStepper = ({
     state,
     nextStep,
     prevStep,
+    setStep: setCurrentStep,
   };
 };
 
