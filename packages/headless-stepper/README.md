@@ -104,7 +104,7 @@ The Storybook will be available on the localhost:4400 and refresh when you chang
 
 ## Sponsors
 
-[![Sponsors](https://github.com/raisiqueira/headless-stepper-monorepo/blob/HEAD/sponsorkit/sponsors.svg)](https://headless-stepper.netlify.app/sponsors)
+[![Sponsors](https://cdn.jsdelivr.net/gh/raisiqueira/static/sponsors.svg)](https://headless-stepper.netlify.app/sponsors)
 
 ## License
 

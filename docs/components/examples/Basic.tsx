@@ -41,7 +41,7 @@ const Sandbox = () => {
         <button onClick={prevStep} disabled={!state.hasPreviousStep}>
           Prev
         </button>
-        <button onClick={nextStep}>Next</button>
+        <button onClick={nextStep} disabled={!state.hasNextStep}>Next</button>
         <div {...progressProps} />
         <p>State:</p>
         <pre style={{backgroundColor: '#f2f2f2'}}>

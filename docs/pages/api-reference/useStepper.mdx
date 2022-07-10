@@ -29,7 +29,8 @@ Headless Stepper uses React hook under the hood, and externaly for lifecycle man
 | `progressProps` | `React.HTMLAttributes<HTMLElement>`   | props to use into a HTMLElement to represents a progress bar.        | `-`      | `-`     |
 | `state`         | `StepperState`                        | the stepper state with current step, disabled steps and other props. | `-`      | `-`     |
 | `nextStep()`    | `() => void`                          | Trigger the next step.                                               | `-`      | `-`     |
-| `prevStep`      | `() => void`                          | Trigger the previous step.                                           | `-`      | `-`     |
+| `prevStep()`    | `() => void`                          | Trigger the previous step.                                           | `-`      | `-`     |
+| `setStep()`     | `(step: number) => void`              | Go to a step directly.                                               | `-`      | `-`     |
 
 ## Misc types
 
