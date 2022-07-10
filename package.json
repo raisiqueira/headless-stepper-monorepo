@@ -77,7 +77,7 @@
     "packages/**"
   ],
   "dependencies": {
-    "@codesandbox/sandpack-react": "^0.14.9",
+    "@codesandbox/sandpack-react": "^1.2.2",
     "@nrwl/next": "13.8.5",
     "core-js": "^3.6.5",
     "next": "12.1.0",
