@@ -21,7 +21,10 @@
     "**/*.stories.js",
     "**/*.stories.jsx",
     "**/*.stories.tsx",
-    "jest.config.ts"
+    "jest.config.ts",
+    "src/lib/components/**",
+    "src/lib/examples/**",
+    "src/lib/context/**",
   ],
   "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
 }
