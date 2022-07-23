@@ -17,11 +17,15 @@
         "project": "packages/headless-stepper/package.json",
         "entryFile": "packages/headless-stepper/src/index.ts",
         "external": [
-          "react/jsx-runtime",
-          "react"
+          "react/jsx-runtime"
         ],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
+        "format": [
+          "esm",
+          "umd"
+        ],
+        "umdName": "headlessStepperReact",
         "assets": [
           {
             "glob": "packages/headless-stepper/README.md",
