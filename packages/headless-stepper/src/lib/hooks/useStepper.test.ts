@@ -1,4 +1,4 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, act } from '@testing-library/react';
 import { Steps } from '../types';
 import { useStepper } from './useStepper';
 
@@ -74,7 +74,7 @@ describe('useStepper', () => {
     expect(state?.totalSteps).toBe(steps.length);
   });
 
-  fit('should set current step to 3', async () => {
+  it('should set current step to 3', async () => {
     const { result } = renderHook(() => useStepper({ steps }));
     expect(result?.current?.state?.currentStep).toBe(0);
 

@@ -1,5 +1,5 @@
 {
-  "root": "packages/headless-stepper",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/headless-stepper/src",
   "projectType": "library",
   "tags": [
@@ -17,7 +17,8 @@
         "project": "packages/headless-stepper/package.json",
         "entryFile": "packages/headless-stepper/src/index.ts",
         "external": [
-          "react/jsx-runtime"
+          "react/jsx-runtime",
+          "react"
         ],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
         "compiler": "babel",
@@ -57,7 +58,7 @@
         "coverage/packages/headless-stepper"
       ],
       "options": {
-        "jestConfig": "packages/headless-stepper/jest.config.js",
+        "jestConfig": "packages/headless-stepper/jest.config.ts",
         "passWithNoTests": true
       }
     },
