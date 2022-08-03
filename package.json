@@ -97,11 +97,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/packages/headless-stepper/index.esm.js",
+      "path": "dist/packages/headless-stepper/index.cjs",
       "limit": "15 KB"
     },
     {
-      "path": "dist/packages/headless-stepper/index.umd.js",
+      "path": "dist/packages/headless-stepper/index.js",
       "limit": "15 KB"
     }
   ]
