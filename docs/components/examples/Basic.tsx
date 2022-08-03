@@ -43,6 +43,7 @@ const Sandbox = () => {
         </button>
         <button onClick={nextStep} disabled={!state.hasNextStep}>Next</button>
         <div {...progressProps} />
+        <p>React Version: {React.version}</p>
         <p>State:</p>
         <pre style={{backgroundColor: '#f2f2f2'}}>
           {JSON.stringify(state, null, 2)}
