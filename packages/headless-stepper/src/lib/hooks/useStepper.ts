@@ -1,5 +1,6 @@
 import React from 'react';
 import type { HTMLAttributes, KeyboardEvent } from 'react';
+import { useIsomorphicId } from './useId';
 import type { Steps, StepperOrientation } from '../types';
 
 /**
@@ -58,9 +59,9 @@ const useStepper = ({
 }: StepperProps): UseStepper => {
   const { steps, currentStep } = rest;
   // IDs
-  const stepperId = React.useId();
-  const progressId = React.useId();
-  const labelId = `${React.useId()}-label`;
+  const stepperId = useIsomorphicId();
+  const progressId = useIsomorphicId();
+  const labelId = `${useIsomorphicId()}-label`;
   // States & Ref's
   const [_currentStep, setCurrentStep] = React.useState(currentStep ?? 0);
   const hasPreviousStep = React.useRef(false);
