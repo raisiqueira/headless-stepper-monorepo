@@ -1,21 +1,33 @@
 import React from 'react';
+import cslx from 'clsx';
 import StepperContext from '../context';
 import { useIsomorphicId } from '../hooks/useId';
 import { useStepper } from '../hooks/useStepper';
 import type { StepperOrientation, Steps } from '../types';
 import { IS_DEV } from '../utils';
 
-export type StepperProps = React.PropsWithChildren<{
-  currentStep?: number;
-  orientation?: StepperOrientation;
-}>;
+export type StepperProps = React.PropsWithChildren<
+  React.HTMLAttributes<HTMLElement> & {
+    currentStep?: number;
+    orientation?: StepperOrientation;
+  }
+>;
 
 export type StepProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> & Steps
 >;
 
 const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
-  ({ currentStep = 0, orientation = 'horizontal', children }, ref) => {
+  (
+    {
+      currentStep = 0,
+      orientation = 'horizontal',
+      children,
+      className,
+      ...rest
+    },
+    ref
+  ) => {
     const id = useIsomorphicId();
     const stepsAsChildren = React.Children.toArray(
       children
@@ -38,10 +50,10 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       () => ({
         role: 'tabpanel',
         id: `step-content-${id}-${
-          stepperHook.stepsProps[stepperHook.state.currentStep].id
+          stepperHook.stepsProps[stepperHook?.state?.currentStep]?.id
         }`,
         'aria-labelledby': `step-label-${id}-${
-          stepperHook.stepsProps[stepperHook.state.currentStep].id
+          stepperHook.stepsProps[stepperHook?.state?.currentStep]?.id
         }`,
         'aria-expanded': true,
       }),
@@ -56,9 +68,9 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           React.cloneElement(step, {
             disabled: isDisabled,
             'aria-controls': `step-content-${id}-${
-              stepperHook.stepsProps[stepperHook.state.currentStep].id
+              stepperHook?.stepsProps[stepperHook?.state?.currentStep]?.id
             }`,
-            ...stepperHook.stepsProps[index],
+            ...stepperHook?.stepsProps[index],
           })
         );
         return acc;
@@ -67,12 +79,18 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     );
 
     const stepContent =
-      stepsAsChildren[stepperHook.state.currentStep].props.children;
+      stepsAsChildren[stepperHook?.state?.currentStep]?.props?.children;
 
     /** Return the Context and the steps list. */
     return (
       <StepperContext.Provider value={stepperHook}>
-        <div ref={ref} id={id} {...stepperHook.stepperProps}>
+        <div
+          ref={ref}
+          id={id}
+          className={cslx(className)}
+          {...stepperHook.stepperProps}
+          {...rest}
+        >
           {items}
           <div className="content" {...contentProps}>
             {stepContent}
@@ -98,6 +116,4 @@ if (IS_DEV) {
   Step.displayName = 'Stepper.Step';
 }
 
-Stepper.Step = Step;
-
-export { Stepper };
+export { Stepper, Step };

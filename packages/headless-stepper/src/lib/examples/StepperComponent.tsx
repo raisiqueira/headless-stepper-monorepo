@@ -1,16 +1,15 @@
-import React from 'react';
-import { Stepper } from '../components/Stepper';
+import { Stepper, Step } from '../components/Stepper';
 
 const StepperComponent = () => {
   return (
-    <Stepper currentStep={2}>
-      <Stepper.Step label="Step 1">Step 1 content</Stepper.Step>
+    <Stepper currentStep={0} className="example">
+      <Step label="Step 1">Step 1 content</Step>
 
-      <Stepper.Step label="Step 2" disabled>
+      <Step label="Step 2" disabled>
         Step 2 content
-      </Stepper.Step>
+      </Step>
 
-      <Stepper.Step label="Step 3">Step 3 content</Stepper.Step>
+      <Step label="Step 3">Step 3 content</Step>
     </Stepper>
   );
 };
