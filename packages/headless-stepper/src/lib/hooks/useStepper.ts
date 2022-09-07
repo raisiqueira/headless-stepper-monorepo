@@ -6,7 +6,7 @@ import type { Steps, StepperOrientation } from '../types';
 /**
  * Props for build stepper.
  */
-type StepperProps = {
+export type StepperProps = {
   /** List of steps. */
   steps: Steps[];
   /** Current step selected. */
