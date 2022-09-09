@@ -3,18 +3,26 @@ import cslx from 'clsx';
 import StepperContext from '../context';
 import { useIsomorphicId } from '../hooks/useId';
 import { useStepper } from '../hooks/useStepper';
-import type { StepperOrientation, Steps } from '../types';
+import type {
+  PolymorphicComponentType,
+  StepperOrientation,
+  Steps,
+} from '../types';
 import { IS_DEV } from '../utils';
 
 export type StepperProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> & {
     currentStep?: number;
     orientation?: StepperOrientation;
+    as?: PolymorphicComponentType;
   }
 >;
 
 export type StepProps = React.PropsWithChildren<
-  React.HTMLAttributes<HTMLElement> & Steps
+  React.HTMLAttributes<HTMLElement> &
+    Steps & {
+      as?: PolymorphicComponentType;
+    }
 >;
 
 const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
@@ -24,10 +32,12 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
       orientation = 'horizontal',
       children,
       className,
+      as,
       ...rest
     },
     ref
   ) => {
+    const AsComponent = as || 'nav';
     const id = useIsomorphicId();
     const stepsAsChildren = React.Children.toArray(
       children
@@ -84,7 +94,7 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     /** Return the Context and the steps list. */
     return (
       <StepperContext.Provider value={stepperHook}>
-        <div
+        <AsComponent
           ref={ref}
           id={id}
           className={cslx(className)}
@@ -95,19 +105,20 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
           <div className="content" {...contentProps}>
             {stepContent}
           </div>
-        </div>
+        </AsComponent>
       </StepperContext.Provider>
     );
   }
 );
 
 const Step = React.forwardRef<HTMLDivElement, StepProps>((props, ref) => {
-  const { label, disabled, ...rest } = props;
+  const { label, disabled, as, ...rest } = props;
+  const AsComponent = as || 'button';
 
   return (
-    <div ref={ref} {...rest}>
-      <button disabled={disabled}>{label}</button>
-    </div>
+    <AsComponent ref={ref} {...rest}>
+      {label}
+    </AsComponent>
   );
 });
 

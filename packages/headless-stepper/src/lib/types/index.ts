@@ -1,3 +1,5 @@
+import React from 'react';
+
 /** Type for steps. */
 type Steps = {
   /** Label to display. Ex.: Step 04 */
@@ -27,4 +29,13 @@ type StepperContextType = {
   onChange?: (index: number) => void | undefined;
 };
 
-export { StepperContextType, StepperOrientation, StepperDirection, Steps };
+type PolymorphicComponentType<C extends React.ElementType = React.ElementType> =
+  C;
+
+export {
+  StepperContextType,
+  StepperOrientation,
+  StepperDirection,
+  Steps,
+  PolymorphicComponentType,
+};
