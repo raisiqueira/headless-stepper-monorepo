@@ -23,9 +23,9 @@
         "compiler": "babel",
         "format": [
           "esm",
-          "umd"
+          "cjs"
         ],
-        "umdName": "headlessStepperReact",
+        "generateExportsField": true,
         "assets": [
           {
             "glob": "packages/headless-stepper/README.md",
