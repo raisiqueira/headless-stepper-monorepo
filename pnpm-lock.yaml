@@ -33,6 +33,7 @@ specifiers:
   autoprefixer: 10.4.8
   babel-jest: 28.1.3
   babel-loader: 8.1.0
+  babel-plugin-optimize-clsx: ^2.6.2
   clsx: ^1.2.1
   core-js: ^3.6.5
   cypress: ^9.1.0
@@ -119,6 +120,7 @@ devDependencies:
   autoprefixer: 10.4.8_postcss@8.4.16
   babel-jest: 28.1.3_@babel+core@7.12.13
   babel-loader: 8.1.0_yn7hozqxmtgwi2hwtpmnefyvea
+  babel-plugin-optimize-clsx: 2.6.2
   cypress: 9.7.0
   eslint: 8.15.0
   eslint-config-next: 12.1.6_cklpogeo4nri4ucsnqf3ztapcy
@@ -8271,6 +8273,17 @@ packages:
 
   /babel-plugin-named-exports-order/0.0.2:
     resolution: {integrity: sha512-OgOYHOLoRK+/mvXU9imKHlG6GkPLYrUCvFXG/CM93R/aNNO8pOOF4aS+S8CCHMDQoNSeiOYEZb/G6RwL95Jktw==}
+    dev: true
+
+  /babel-plugin-optimize-clsx/2.6.2:
+    resolution: {integrity: sha512-TxgyjdVb7trTAsg/J5ByqJdbBPTYR8yaWLGQGpSxwygw8IFST5gEc1J9QktCGCHCb+69t04DWg9KOE0y2hN30w==}
+    dependencies:
+      '@babel/generator': 7.18.9
+      '@babel/template': 7.18.6
+      '@babel/types': 7.18.9
+      find-cache-dir: 3.3.2
+      lodash: 4.17.21
+      object-hash: 2.2.0
     dev: true
 
   /babel-plugin-polyfill-corejs2/0.3.1_@babel+core@7.12.13:
@@ -17077,6 +17090,11 @@ packages:
       copy-descriptor: 0.1.1
       define-property: 0.2.5
       kind-of: 3.2.2
+    dev: true
+
+  /object-hash/2.2.0:
+    resolution: {integrity: sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw==}
+    engines: {node: '>= 6'}
     dev: true
 
   /object-hash/3.0.0:

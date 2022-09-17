@@ -50,6 +50,7 @@
     "autoprefixer": "10.4.8",
     "babel-jest": "28.1.3",
     "babel-loader": "8.1.0",
+    "babel-plugin-optimize-clsx": "^2.6.2",
     "cypress": "^9.1.0",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
@@ -105,4 +106,3 @@
     }
   ]
 }
-
