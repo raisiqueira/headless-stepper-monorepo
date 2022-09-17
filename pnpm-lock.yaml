@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': 7.12.13
   '@babel/preset-typescript': 7.12.13
-  '@codesandbox/sandpack-react': ^1.3.0
+  '@codesandbox/sandpack-react': 1.7.2
   '@nrwl/cli': 14.4.3
   '@nrwl/cypress': 14.4.3
   '@nrwl/eslint-plugin-nx': 14.4.3
@@ -73,7 +73,7 @@ specifiers:
   webpack: ^5.73.0
 
 dependencies:
-  '@codesandbox/sandpack-react': 1.3.0_biqbaboplfbrettd7655fr4n2y
+  '@codesandbox/sandpack-react': 1.7.2_biqbaboplfbrettd7655fr4n2y
   '@nrwl/next': 13.8.5_car6bgji2jiuqnvisktpzueagq
   clsx: 1.2.1
   core-js: 3.23.5
@@ -2819,15 +2819,15 @@ packages:
       w3c-keyname: 2.2.4
     dev: false
 
-  /@codesandbox/sandpack-client/1.2.2:
-    resolution: {integrity: sha512-sTPQVS7mzpEm2ttpHFFSqkGd1A1tBZn7UTZwIjBNCXKHywrt9o7MyrdhUuS03J7MyXN+HSJ55Vz+OGD1Wv4ejQ==}
+  /@codesandbox/sandpack-client/1.7.0:
+    resolution: {integrity: sha512-13nL7+OX7iefVXeO+cvEntZD/hBuXLPjv72e5tiCjwuq/oor8jR2NGxzJ0pozUfZmJhvDIAxw5isJvhiIdgcWA==}
     dependencies:
       codesandbox-import-utils: 1.3.8
       lodash.isequal: 4.5.0
     dev: false
 
-  /@codesandbox/sandpack-react/1.3.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-NS8ZjoYKb3CeYToijxRjs7G8k4FbzcDMhrRX9WSoAani1m4yif9LfnYfv04Uls4sy9cZ2SrOgQxjfvmxOraLsg==}
+  /@codesandbox/sandpack-react/1.7.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-oOaGzzqcFcDgoHMZ1cuQKYGTdQPgtmMHNgingSbzxcxTCIsA0hkwm+2ilVH1d1AZSgbIPoLqbYVjrdtsO4lJJg==}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
       react-dom: ^16.8.0 || ^17 || ^18
@@ -2847,9 +2847,10 @@ packages:
       '@codemirror/matchbrackets': 0.19.4
       '@codemirror/state': 0.19.9
       '@codemirror/view': 0.19.48
-      '@codesandbox/sandpack-client': 1.2.2
+      '@codesandbox/sandpack-client': 1.7.0
       '@react-hook/intersection-observer': 3.1.1_react@18.2.0
       '@stitches/core': 1.2.8
+      clean-set: 1.1.2
       codesandbox-import-util-types: 2.2.3
       lodash.isequal: 4.5.0
       lz-string: 1.4.4
@@ -9659,6 +9660,10 @@ packages:
     dependencies:
       source-map: 0.6.1
     dev: true
+
+  /clean-set/1.1.2:
+    resolution: {integrity: sha512-cA8uCj0qSoG9e0kevyOWXwPaELRPVg5Pxp6WskLMwerx257Zfnh8Nl0JBH59d7wQzij2CK7qEfJQK3RjuKKIug==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
