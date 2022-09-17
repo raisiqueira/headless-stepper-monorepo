@@ -80,7 +80,7 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
 export default HeadlessStepper;
 ```
 
-More examples will be available on documentation.
+More examples on [documentation](https://headless-stepper.netlify.app/).
 
 ## Running unit tests
 
@@ -97,10 +97,6 @@ npm run dev
 ```
 
 The Storybook will be available on the localhost:4400 and refresh when you change the `useStepper` code.
-
-## Next steps
-
-- Expose the headless components instead of only the `useStepper` hook.
 
 ## Sponsors
 
