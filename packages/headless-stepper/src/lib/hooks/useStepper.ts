@@ -6,7 +6,7 @@ import type { Steps, StepperOrientation } from '../types';
 /**
  * Props for build stepper.
  */
-export type StepperProps = {
+type StepperProps = {
   /** List of steps. */
   steps: Steps[];
   /** Current step selected. */
@@ -89,19 +89,59 @@ const useStepper = ({
     setCurrentStep((currentStep) => currentStep - 1);
   }, [_currentStep]);
 
+  const _getNextArrayItem = (el: HTMLElement) => {
+    const currentIndex = stepElementsRef.current.indexOf(el);
+    const nextItem = (currentIndex + 1) % stepElementsRef.current.length;
+    return stepElementsRef.current[nextItem];
+  };
+
+  const _getPreviousArrayItem = (el: HTMLElement) => {
+    const currentIndex = stepElementsRef.current.indexOf(el);
+    const previousItem =
+      (currentIndex - 1 + stepElementsRef.current.length) %
+      stepElementsRef.current.length;
+    return stepElementsRef.current[previousItem];
+  };
+
   // handle keydown
   const handleKeydown = React.useCallback(
     (event: KeyboardEvent<HTMLElement>, index: number) => {
       const kbLeftRightArrowsKeys = [37, 39];
       const kbEnterSpaceKeys = [13, 32];
+      const previousElement = stepElementsRef.current[index - 1];
+      const nextElement = stepElementsRef.current[index + 1];
+      const nextElToFocus = _getNextArrayItem(nextElement);
+      const prevElToFocus = _getPreviousArrayItem(previousElement);
+      // Only focus if the next element is not disabled
+      const isNextElementDisabled = nextElement?.getAttribute('aria-disabled');
+      const isNextElementDisabledBoolean = isNextElementDisabled === 'true';
+      const isPreviousElementDisabled =
+        previousElement?.getAttribute('aria-disabled');
+      const isPreviousElementDisabledBoolean =
+        isPreviousElementDisabled === 'true';
+
       if (kbLeftRightArrowsKeys.includes(event?.keyCode)) {
         event?.preventDefault();
         // Focus prev or next step when user press left or right arrow
         if (event?.keyCode === 39) {
+          if (isNextElementDisabledBoolean) {
+            nextElToFocus?.focus();
+            currentStepFocused.current = stepElementsRef.current.findIndex(
+              (el) => el.id === nextElToFocus.id
+            );
+            return;
+          }
           stepElementsRef.current[index + 1]?.focus();
           currentStepFocused.current = index + 1;
         }
         if (event?.keyCode === 37) {
+          if (isPreviousElementDisabledBoolean) {
+            prevElToFocus?.focus();
+            currentStepFocused.current = stepElementsRef.current.findIndex(
+              (el) => el.id === prevElToFocus.id
+            );
+            return;
+          }
           stepElementsRef.current[index - 1]?.focus();
           currentStepFocused.current = index - 1;
         }

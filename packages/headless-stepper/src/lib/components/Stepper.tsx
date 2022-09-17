@@ -112,11 +112,19 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
 );
 
 const Step = React.forwardRef<HTMLDivElement, StepProps>((props, ref) => {
-  const { label, disabled, as, ...rest } = props;
+  const { label, disabled, style, as, ...rest } = props;
   const AsComponent = as || 'button';
 
   return (
-    <AsComponent ref={ref} {...rest}>
+    <AsComponent
+      ref={ref}
+      style={{
+        pointerEvents: disabled ? 'none' : 'auto',
+        opacity: disabled ? 0.5 : 1,
+        ...style,
+      }}
+      {...rest}
+    >
       {label}
     </AsComponent>
   );
