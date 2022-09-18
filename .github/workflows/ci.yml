@@ -34,4 +34,4 @@ jobs:
         run: npm run nx run headless-stepper:test
 
       - name: Build
-        run: pnpm run build:lib:tsup
+        run: pnpm run build-with-tsup
