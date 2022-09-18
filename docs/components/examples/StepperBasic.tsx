@@ -26,7 +26,7 @@ export default MyAwesomeStepper;
   return (
     <Sandpack
       template="react-ts"
-      customSetup={{ dependencies: { 'headless-stepper': 'next', clsx: '*' } }}
+      customSetup={{ dependencies: { 'headless-stepper': 'next' } }}
       files={{
         '/App.tsx': code,
       }}

@@ -1,5 +1,4 @@
 import React from 'react';
-import cslx from 'clsx';
 import StepperContext from '../context';
 import { useIsomorphicId } from '../hooks/useId';
 import { useStepper } from '../hooks/useStepper';
@@ -93,18 +92,10 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperComponentProps>(
     /** Return the Context and the steps list. */
     return (
       <StepperContext.Provider value={stepperHook}>
-        <AsComponent
-          ref={ref}
-          id={id}
-          className={cslx(className)}
-          {...stepperHook.stepperProps}
-          {...rest}
-        >
+        <AsComponent ref={ref} id={id} {...stepperHook.stepperProps} {...rest}>
           {items}
-          <div className="content" {...contentProps}>
-            {stepContent}
-          </div>
         </AsComponent>
+        <div {...contentProps}>{stepContent}</div>
       </StepperContext.Provider>
     );
   }

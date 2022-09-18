@@ -43,7 +43,6 @@ const Sandbox = () => {
           '@mantine/core': '5',
           '@emotion/react': '11',
           '@mantine/hooks': '5',
-          clsx: '*',
         },
       }}
       files={{
