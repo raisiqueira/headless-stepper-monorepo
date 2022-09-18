@@ -7,6 +7,7 @@
     "dev:docs": "cd docs && npm run dev",
     "prebuild": "cp -r ./README.md ./packages/headless-stepper",
     "build:lib": "npm run prebuild && nx build headless-stepper",
+    "build:lib:tsup": "pnpm exec tsup --config packages/headless-stepper/tsup.config.ts",
     "nx": "nx",
     "np": "np",
     "publish:prod": "npm run build:lib && cd ./dist/packages/headless-stepper && npm publish",
