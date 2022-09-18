@@ -8,9 +8,8 @@ import type {
   StepperOrientation,
   Steps,
 } from '../types';
-import { IS_DEV } from '../utils';
 
-export type StepperProps = React.PropsWithChildren<
+export type StepperComponentProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> & {
     currentStep?: number;
     orientation?: StepperOrientation;
@@ -18,14 +17,14 @@ export type StepperProps = React.PropsWithChildren<
   }
 >;
 
-export type StepProps = React.PropsWithChildren<
+export type StepComponentProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> &
     Steps & {
       as?: PolymorphicComponentType;
     }
 >;
 
-const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
+const Stepper = React.forwardRef<HTMLDivElement, StepperComponentProps>(
   (
     {
       currentStep = 0,
@@ -41,7 +40,7 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
     const id = useIsomorphicId();
     const stepsAsChildren = React.Children.toArray(
       children
-    ) as React.ReactElement<StepProps>[];
+    ) as React.ReactElement<StepComponentProps>[];
 
     /** Values passed to the context. */
     const stepperHookValues = React.useMemo(() => {
@@ -111,28 +110,28 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
   }
 );
 
-const Step = React.forwardRef<HTMLDivElement, StepProps>((props, ref) => {
-  const { label, disabled, style, as, ...rest } = props;
-  const AsComponent = as || 'button';
+const Step = React.forwardRef<HTMLDivElement, StepComponentProps>(
+  (props, ref) => {
+    const { label, disabled, style, as, ...rest } = props;
+    const AsComponent = as || 'button';
 
-  return (
-    <AsComponent
-      ref={ref}
-      style={{
-        pointerEvents: disabled ? 'none' : 'auto',
-        opacity: disabled ? 0.5 : 1,
-        ...style,
-      }}
-      {...rest}
-    >
-      {label}
-    </AsComponent>
-  );
-});
+    return (
+      <AsComponent
+        ref={ref}
+        style={{
+          pointerEvents: disabled ? 'none' : 'auto',
+          opacity: disabled ? 0.5 : 1,
+          ...style,
+        }}
+        {...rest}
+      >
+        {label}
+      </AsComponent>
+    );
+  }
+);
 
-if (IS_DEV) {
-  Stepper.displayName = 'Stepper.Root';
-  Step.displayName = 'Stepper.Step';
-}
+Stepper.displayName = 'Stepper.Root';
+Step.displayName = 'Stepper.Step';
 
 export { Stepper, Step };
