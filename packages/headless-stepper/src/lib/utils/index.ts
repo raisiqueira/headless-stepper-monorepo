@@ -11,9 +11,4 @@ const randomId = () => {
  */
 const isClient = typeof window !== 'undefined';
 
-/**
- * Check if dev mode.
- */
-const IS_DEV = process.env['NODE_ENV'] !== 'production';
-
-export { randomId, isClient, IS_DEV };
+export { randomId, isClient };
