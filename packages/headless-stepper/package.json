@@ -1,13 +1,20 @@
 {
   "name": "headless-stepper",
   "description": "Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.",
-  "version": "1.6.0-beta.1",
+  "version": "1.6.0-beta.2",
+  "main": "./dist/index.cjs.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Raí Siqueira",
     "email": "me@raisiqueira.io"
   },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/raisiqueira/"
+  },
   "repository": "https://github.com/raisiqueira/headless-stepper-monorepo",
+  "homepage": "https://headless-stepper.netlify.app/",
   "bugs": {
     "url": "https://github.com/raisiqueira/headless-stepper-monorepo/issues"
   },
@@ -24,5 +31,18 @@
     "react-stepper",
     "typescript",
     "react-hooks"
-  ]
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.esm.js",
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false
 }

@@ -71,6 +71,7 @@
     "sponsorkit": "^0.4.1",
     "tailwindcss": "3.1.8",
     "ts-jest": "28.0.8",
+    "tsup": "^6.2.3",
     "typescript": "4.7.4",
     "url-loader": "^3.0.0",
     "vite": "^3.0.2",
@@ -97,11 +98,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/packages/headless-stepper/index.cjs",
+      "path": "packages/headless-stepper/dist/index.cjs.js",
       "limit": "15 KB"
     },
     {
-      "path": "dist/packages/headless-stepper/index.js",
+      "path": "packages/headless-stepper/dist/index.esm.js",
       "limit": "15 KB"
     }
   ]
