@@ -1,3 +1,5 @@
 {
-  "useStepper": "useStepper()"
+  "useStepper": "useStepper()",
+  "stepper": "Stepper component",
+  "step": "Step component"
 }

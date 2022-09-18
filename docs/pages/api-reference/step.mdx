@@ -1,0 +1,19 @@
+---
+title: Step API
+---
+
+# API reference to the `Step` componenent
+
+## `StepComponentProps`
+
+The `StepsComponentProps` extends the `Steps` type alias. For more details, see the [Steps](/api-reference/useStepper#steps) documentation.
+
+<br />
+
+| Parameter  | Type                | Description                                   | Required | Default     |
+| ---------- | ------------------- | --------------------------------------------- | -------- | ----------- |
+| `children` | `React.ReactNode`   | The content of the component.                 | `false`  | `undefined` |
+| `as`       | `React.ElementType` | The HTML tag or React component to render as. | `false`  | `div`       |
+| `label`    | `string`            | Label to display. Ex.: Step 04                | `true`   | `-`         |
+| `disabled` | `boolean`           | Enable/disable step.                          | `-`      | `-`         |
+| `isValid`  | `boolean`           | Check if a step is valid.                     | `-`      | `-`         |
