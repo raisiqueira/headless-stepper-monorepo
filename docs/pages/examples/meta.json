@@ -1,3 +1,5 @@
 {
-  "basic": "Basic + Tailwind CSS"
+  "basic": "useStepper Basic + Tailwind CSS",
+  "next-chakra": "useStepper + Chakra UI",
+  "stepper-component": "Stepper Component + Mantine"
 }

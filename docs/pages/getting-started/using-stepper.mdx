@@ -1,0 +1,123 @@
+---
+title: Using the Stepper component
+---
+
+import StepperBasicExample from '../../components/examples/StepperBasic';
+import StepperWithAsProps from '../../components/examples/StepperWithAsProps';
+
+# Using the Stepper component
+
+This component is used to display a list of steps that the user can navigate through.
+Like the `useStepper` hook, the `Stepper` component does not have its own style. It is up to you to style it.
+The stepper component has a prop called `as` to help with this. So, you can use your own component to be the stepper.
+
+The `headless-stepper` provides two components to build your own stepper: `Stepper` and `Step`. Let's see how to use them.
+
+## Starting from the basic
+
+The `Stepper` component is a wrapper around the `useStepper` hook. It takes the same props as the hook, and it also takes an `as` prop to render the stepper.
+
+Let's build a simple stepper that has 3 steps.
+
+```jsx
+import { Stepper, Step } from 'headless-stepper';
+
+const MyAwesomeStepper = () => {
+  return (
+    <Stepper currentStep={0}>
+      <Step label="Step 1">Step 1 content</Step>
+
+      <Step label="Step 2">Step 2 content</Step>
+
+      <Step label="Step 3">Step 3 content</Step>
+    </Stepper>
+  );
+};
+
+export default MyAwesomeStepper;
+```
+
+As we can see, is easy to build a simple wizard. But, we can do better. Let's improve the stepper by adding a _disabled_ step.
+The `Stepper` component will automatically disable the steps that are not reachable.
+
+```jsx
+import { Stepper, Step } from 'headless-stepper';
+
+const MyAwesomeStepper = () => {
+  return (
+    <Stepper currentStep={0}>
+      <Step label="Step 1">Step 1 content</Step>
+
+      <Step label="Step 2" disabled>
+        Step 2 content
+      </Step>
+
+      <Step label="Step 3">Step 3 content</Step>
+    </Stepper>
+  );
+};
+
+export default MyAwesomeStepper;
+```
+
+The above code will be rendered as:
+
+<br />
+
+<StepperBasicExample />
+
+## Using the `as` prop
+
+Both the `Stepper` and `Step` components have an `as` prop. This prop is used to render the component that will be used as.
+
+Let's improve the stepper by using the `as` prop to render a group of steps. To do this, we will use the [Mantine UI](https://mantine.dev/) as UI library.
+
+```jsx
+import { Stepper, Step } from 'headless-stepper';
+import { MantineProvider, Button, Group, Container, Box } from '@mantine/core';
+
+const MyAwesomeStepper = () => {
+  return (
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Container mt="lg">
+        <Stepper as={Group} currentStep={0} className="example">
+          <Step as={Button} label="Step 1">
+            <Box>Step 1 content</Box>
+          </Step>
+
+          <Step as={Button} label="Step 2" disabled>
+            Step 2 content
+          </Step>
+
+          <Step as={Button} label="Step 3">
+            Step 3 content
+          </Step>
+        </Stepper>
+      </Container>
+    </MantineProvider>
+  );
+};
+
+export default MyAwesomeStepper;
+```
+
+<br />
+
+<StepperWithAsProps />
+
+We can see that the `as` prop is really helpful for personalizing the stepper. To depict the steps, you can use any component you choose. Point out that line 9, which creates a `Group` component, and that each line that has a Step component creates a `Button` component to represent the Steps.
+
+## Accessibility notes
+
+The `Stepper` component is fully accessible. It uses the `useStepper` hook to manage the state of the stepper.
+So, you can use the keyboard to interact with the stepper.
+
+### Keyboard interaction
+
+| Keyboard key | Description                                      |
+| ------------ | ------------------------------------------------ |
+| `Tab`        | Focus on first step or focus on the current step |
+| `ArrowLeft`  | Go to previous step.                             |
+| `ArrowRight` | Go to next step.                                 |
+| `Enter`      | Select the focused step.                         |
+| `Space`      | Select the focused step.                         |

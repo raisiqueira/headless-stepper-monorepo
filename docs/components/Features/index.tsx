@@ -29,7 +29,7 @@ const feats = [
     icon: FiFeather,
   },
   {
-    name: 'composable',
+    name: 'Composable',
     icon: FiSliders,
   },
 ];
