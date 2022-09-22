@@ -22,11 +22,13 @@ specifiers:
   '@storybook/manager-webpack5': 6.5.9
   '@storybook/react': 6.5.9
   '@svgr/webpack': ^5.4.0
+  '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': 13.3.0
   '@types/jest': 28.1.8
   '@types/node': 18.7.14
   '@types/react': 18.0.18
   '@types/react-dom': 18.0.5
+  '@types/testing-library__jest-dom': ^5.14.5
   '@typescript-eslint/eslint-plugin': 5.33.1
   '@typescript-eslint/parser': 5.33.1
   '@vitejs/plugin-react': ^2.0.0
@@ -110,11 +112,13 @@ devDependencies:
   '@storybook/manager-webpack5': 6.5.9_h3jjsywk3mzbt34ovlns5wil5u
   '@storybook/react': 6.5.9_ihjzznlti4t5s46jfmtoslfubu
   '@svgr/webpack': 5.5.0
+  '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
   '@types/jest': 28.1.8
   '@types/node': 18.7.14
   '@types/react': 18.0.18
   '@types/react-dom': 18.0.5
+  '@types/testing-library__jest-dom': 5.14.5
   '@typescript-eslint/eslint-plugin': 5.33.1_m7xvcpf4u5pta577mmcxmrpwhu
   '@typescript-eslint/parser': 5.33.1_4hx5bygx4rxgd7xwyndf6ymwce
   '@vitejs/plugin-react': 2.0.0_vite@3.0.2
@@ -151,6 +155,10 @@ devDependencies:
   webpack: 5.73.0
 
 packages:
+
+  /@adobe/css-tools/4.0.1:
+    resolution: {integrity: sha512-+u76oB43nOHrF4DDWRLWDCtci7f3QJoEBigemIdIeTi1ODqjx6Tad9NCVnPRwewWlKkVab5PlK8DCtPTyX7S8g==}
+    dev: true
 
   /@ampproject/remapping/2.2.0:
     resolution: {integrity: sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==}
@@ -6582,6 +6590,21 @@ packages:
       pretty-format: 27.5.1
     dev: true
 
+  /@testing-library/jest-dom/5.16.5:
+    resolution: {integrity: sha512-N5ixQ2qKpi5OLYfwQmUb/5mSV9LneAcaUfp32pn4yCnpb8r/Yz0pXFPck21dIicKmi+ta5WRAknkZCfA8refMA==}
+    engines: {node: '>=8', npm: '>=6', yarn: '>=1'}
+    dependencies:
+      '@adobe/css-tools': 4.0.1
+      '@babel/runtime': 7.18.9
+      '@types/testing-library__jest-dom': 5.14.5
+      aria-query: 5.0.0
+      chalk: 3.0.0
+      css.escape: 1.5.1
+      dom-accessibility-api: 0.5.14
+      lodash: 4.17.21
+      redent: 3.0.0
+    dev: true
+
   /@testing-library/react/13.3.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-DB79aA426+deFgGSjnf5grczDPiL4taK3hFaa+M5q7q20Kcve9eQottOG5kZ74KEr55v0tU2CQormSSDK87zYQ==}
     engines: {node: '>=12'}
@@ -7010,6 +7033,12 @@ packages:
 
   /@types/tapable/1.0.8:
     resolution: {integrity: sha512-ipixuVrh2OdNmauvtT51o3d8z12p6LtFW9in7U79der/kwejjdNchQC5UMn5u/KxNoM7VHHOs/l8KS8uHxhODQ==}
+    dev: true
+
+  /@types/testing-library__jest-dom/5.14.5:
+    resolution: {integrity: sha512-SBwbxYoyPIvxHbeHxTZX2Pe/74F/tX2/D3mMvzabdeJ25bBojfW0TyB8BHrbq/9zaaKICJZjLP+8r6AeZMFCuQ==}
+    dependencies:
+      '@types/jest': 28.1.8
     dev: true
 
   /@types/tough-cookie/4.0.2:
@@ -9167,6 +9196,14 @@ packages:
       escape-string-regexp: 1.0.5
       supports-color: 5.5.0
 
+  /chalk/3.0.0:
+    resolution: {integrity: sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==}
+    engines: {node: '>=8'}
+    dependencies:
+      ansi-styles: 4.3.0
+      supports-color: 7.2.0
+    dev: true
+
   /chalk/4.1.0:
     resolution: {integrity: sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==}
     engines: {node: '>=10'}
@@ -10077,6 +10114,10 @@ packages:
   /css-what/6.1.0:
     resolution: {integrity: sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /css.escape/1.5.1:
+    resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
     dev: true
 
   /css/3.0.0:
