@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 
 import * as S from './Stepper';
 import StepperContext from '../context';
-import { UseStepper } from '../hooks/useStepper';
 import { act } from 'react-dom/test-utils';
 
 const StepToBeAsComponent = React.forwardRef((props, ref) => {
@@ -24,6 +23,18 @@ const TestComponent = () => {
 
       <S.Step label="Step 3">Step 3 content</S.Step>
     </S.Stepper>
+  );
+};
+
+const ChildComponent = () => {
+  const context = React.useContext(StepperContext);
+  return (
+    <div>
+      <h3>Step 2 content</h3>
+      <p>Current step: {context?.state.currentStep}</p>
+      <button onClick={() => context?.prevStep()}> Prev step</button>
+      <button onClick={() => context?.nextStep()}>Next step</button>
+    </div>
   );
 };
 
@@ -118,5 +129,51 @@ describe('Stepper component', () => {
     expect(screen.queryByText('Step 2 content')).toBeInTheDocument();
     expect(screen.queryByText('current step: 1')).not.toBeInTheDocument();
     expect(screen.queryByText('total steps: 3')).not.toBeInTheDocument();
+  });
+
+  it('should render a step with child component and display context values', async () => {
+    render(
+      <S.Stepper currentStep={1}>
+        <S.Step label="Step 01 with context">Step 01 content</S.Step>
+
+        <S.Step label="Step 2">
+          <ChildComponent />
+        </S.Step>
+
+        <S.Step label="Step 3">Step 3 content</S.Step>
+      </S.Stepper>
+    );
+
+    expect(screen.queryByText('Next step')).toBeInTheDocument();
+    expect(screen.queryByText('Prev step')).toBeInTheDocument();
+
+    const nextButton = screen.getByText('Next step') as HTMLButtonElement;
+
+    act(() => {
+      nextButton.click();
+    });
+
+    await waitFor(() => screen.getByText('Step 3 content'));
+
+    const step2 = screen.getByText('Step 2');
+
+    expect(screen.queryByText('Step 3 content')).toBeInTheDocument();
+
+    act(() => {
+      step2.click();
+    });
+    await waitFor(() => screen.getByText('Step 2 content'));
+
+    expect(screen.queryByText('Step 2 content')).toBeInTheDocument();
+
+    const prevButton = screen.getByText('Prev step') as HTMLButtonElement;
+
+    act(() => {
+      prevButton.click();
+    });
+
+    await waitFor(() => screen.getByText('Step 01 content'));
+
+    expect(screen.queryByText('Step 01 content')).toBeInTheDocument();
   });
 });
