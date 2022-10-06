@@ -1,17 +1,20 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  projectLink: 'https://github.com/raisiqueira/headless-stepper-monorepo',
+  project: {
+    link: 'https://github.com/raisiqueira/headless-stepper-monorepo',
+  },
   docsRepositoryBase:
     'https://github.com/raisiqueira/headless-stepper-monorepo/tree/main/docs/pages',
   titleSuffix: ' – Headless Stepper',
-  nextLinks: true,
-  prevLinks: true,
-  search: true,
-  customSearch: null, // customizable, you can use algolia for example
+  navigation: {
+    next: true,
+    prev: true,
+  },
   darkMode: true,
-  footer: true,
-  footerText: `MIT ${new Date().getFullYear()} © Raí Siqueira.`,
-  footerEditLink: `Edit this page on GitHub`,
+  footer: {
+    text: `MIT ${new Date().getFullYear()} © Raí Siqueira.`,
+  },
+  EditLink: `Edit this page on GitHub`,
   unstable_stork: false,
   unstable_flexsearch: true,
   logo: () => (

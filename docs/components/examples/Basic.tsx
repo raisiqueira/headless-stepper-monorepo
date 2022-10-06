@@ -1,6 +1,5 @@
 import React from 'react';
 import { Sandpack } from '@codesandbox/sandpack-react';
-import '@codesandbox/sandpack-react/dist/index.css';
 
 const Sandbox = () => {
   const code = `

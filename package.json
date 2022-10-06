@@ -15,7 +15,7 @@
     "analyze": "size-limit --why",
     "test": "npm run nx run headless-stepper:test",
     "test:watch": "npm run nx run headless-stepper:test -- --watch",
-    "postinstall": "(cd docs && npm install)"
+    "postinstall": "(cd docs && pnpm install)"
   },
   "private": true,
   "devDependencies": {
