@@ -14,6 +14,7 @@ export default defineConfig({
   sourcemap: true,
   dts: true,
   format: ['esm', 'cjs'],
+  external: ['react'],
   treeshake: true,
   clean: true,
 });

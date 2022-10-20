@@ -70,7 +70,7 @@ specifiers:
   tailwindcss: 3.1.8
   ts-jest: 28.0.8
   tslib: ^2.0.0
-  tsup: ^6.2.3
+  tsup: ^6.3.0
   typescript: 4.7.4
   url-loader: ^3.0.0
   vite: ^3.0.2
@@ -148,7 +148,7 @@ devDependencies:
   sponsorkit: 0.4.2
   tailwindcss: 3.1.8_postcss@8.4.16
   ts-jest: 28.0.8_eogprqp5zcyfeoj2nwbz4dus3y
-  tsup: 6.2.3_72trlu77vwoamnsgxpuivbk5ba
+  tsup: 6.3.0_72trlu77vwoamnsgxpuivbk5ba
   typescript: 4.7.4
   url-loader: 3.0.0_webpack@5.73.0
   vite: 3.0.2
@@ -21898,8 +21898,8 @@ packages:
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
 
-  /tsup/6.2.3_72trlu77vwoamnsgxpuivbk5ba:
-    resolution: {integrity: sha512-J5Pu2Dx0E1wlpIEsVFv9ryzP1pZ1OYsJ2cBHZ7GrKteytNdzaSz5hmLX7/nAxtypq+jVkVvA79d7S83ETgHQ5w==}
+  /tsup/6.3.0_72trlu77vwoamnsgxpuivbk5ba:
+    resolution: {integrity: sha512-IaNQO/o1rFgadLhNonVKNCT2cks+vvnWX3DnL8sB87lBDqRvJXHENr5lSPJlqwplUlDxSwZK8dSg87rgBu6Emw==}
     engines: {node: '>=14'}
     hasBin: true
     peerDependencies:
