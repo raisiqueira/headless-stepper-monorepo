@@ -8,5 +8,7 @@
       }
     ]
   ],
-  "plugins": []
+  "plugins": [
+    ["babel-plugin-optimize-clsx", { "libraries": ["clsx"]}]
+  ]
 }

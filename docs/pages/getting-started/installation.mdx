@@ -2,16 +2,18 @@
 title: Installation
 ---
 
+import Callout from 'nextra-theme-docs/callout';
+
 # Installation
 
-You can install using [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/en/docs/install), but you can use it with [UNPKG](https://unpkg.com/) too.
+You can install using [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/en/docs/install) or [PNPM](https://pnpm.io/), but you can use it with [UNPKG](https://unpkg.com/) too.
 
 Headless Stepper is compatible with React 16.8.0 and up.
 
 ## NPM
 
 ```bash
-npm install headless-stepper
+npm install --save headless-stepper
 ```
 
 ## Yarn
@@ -20,7 +22,17 @@ npm install headless-stepper
 yarn add headless-stepper
 ```
 
+## PNPM
+
+```bash
+pnpm install --save headless-stepper
+```
+
 ## UNPKG (as UMD module)
+
+<Callout type="warning" emoji="⚠️">
+  Only versions prior to the 1.3.0 can use the UMD bundle.
+</Callout>
 
 ```html
 <script src="https://unpkg.com/headless-stepper@VERSION/index.umd.js"></script>

@@ -2,7 +2,3 @@ project.json
 .storybook/
 src/lib/examples/*
 .eslintrc.json
-
-# remove when finish the components api.
-src/lib/components/*
-src/lib/components/context/*

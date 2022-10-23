@@ -1,5 +1,5 @@
 import React from 'react';
-import { SandpackRunner } from '@codesandbox/sandpack-react';
+import { Sandpack } from '@codesandbox/sandpack-react';
 import '@codesandbox/sandpack-react/dist/index.css';
 
 const Sandbox = () => {
@@ -52,10 +52,16 @@ const Sandbox = () => {
     );
   }`;
   return (
-    <SandpackRunner
+    <Sandpack
       template="react-ts"
-      customSetup={{ dependencies: { 'headless-stepper': 'latest' } }}
-      code={code}
+      customSetup={{ dependencies: { 'headless-stepper': 'next' } }}
+      files={{
+        '/App.tsx': code,
+      }}
+      options={{
+        showNavigator: true,
+        showTabs: true,
+      }}
     />
   );
 };
