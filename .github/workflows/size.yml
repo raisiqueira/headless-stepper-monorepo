@@ -10,13 +10,32 @@ jobs:
     env:
       CI_JOB_NUMBER: 1
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+
+      - name: Set Up Node ${{ matrix.node }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+
+      - name: Cache npm
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: npm-
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        id: cache-node-modules
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+          key: modules-${{ hashFiles('pnpm-lock.yaml') }}
+
       - name: Install PNPM
         run: npm i -g pnpm
+
       - uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
