@@ -49,7 +49,7 @@ jobs:
         with:
           output: report-markdown
           package-manager: pnpm
-          test-script: pnpm test
+          test-script: pnpm test --skip-nx-cache
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
