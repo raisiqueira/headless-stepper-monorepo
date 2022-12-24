@@ -14,18 +14,34 @@ jobs:
     env:
       CI_JOB_NUMBER: 1
     steps:
-      - name: Use Node ${{ matrix.node }}
+      - uses: actions/checkout@v3
+
+      - name: Set Up Node ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Cache npm
+        uses: actions/cache@v3
         with:
-          useLockFile: false
+          path: ~/.npm
+          key: npm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: npm-
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        id: cache-node-modules
+        with:
+          path: |
+            node_modules
+            packages/*/node_modules
+          key: modules-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install PNPM
         run: npm i -g pnpm
+
+      - name: Install dependencies
+        run: pnpm i
 
       - name: Jest coverage report
         uses: ArtiomTr/jest-coverage-report-action@v2
