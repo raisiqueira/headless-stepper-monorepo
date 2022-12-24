@@ -15,7 +15,7 @@ jobs:
       CI_JOB_NUMBER: 1
     steps:
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
