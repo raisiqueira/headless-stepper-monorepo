@@ -7,7 +7,26 @@ on:
 jobs:
   coverage:
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node: ['16.x']
+        os: [ubuntu-latest]
+    env:
+      CI_JOB_NUMBER: 1
     steps:
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps and build (with cache)
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+
+      - name: Install PNPM
+        run: npm i -g pnpm
+
       - name: Jest coverage report
         uses: ArtiomTr/jest-coverage-report-action@v2
         id: jest-coverage
@@ -15,6 +34,7 @@ jobs:
           output: report-markdown
           package-manager: pnpm
           test-script: pnpm test
+
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.jest-coverage.outputs.report }}

@@ -13,7 +13,7 @@
     "publish:dev": "npm run build:lib && cd ./packages/headless-stepper && npm publish --tag next",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "test": "npm run nx run headless-stepper:test",
+    "test": "nx test headless-stepper",
     "test:watch": "npm run nx run headless-stepper:test -- --watch",
     "postinstall": "(cd docs && npm install)"
   },
