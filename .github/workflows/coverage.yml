@@ -1,0 +1,20 @@
+name: "Coverage"
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  coverage:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        id: jest-coverage
+        with:
+          output: report-markdown
+          package-manager: pnpm
+          test-script: pnpm test
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: ${{ steps.jest-coverage.outputs.report }}
