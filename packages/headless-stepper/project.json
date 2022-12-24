@@ -1,4 +1,5 @@
 {
+  "name": "headless-stepper",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/headless-stepper/src",
   "projectType": "library",
@@ -7,7 +8,7 @@
   ],
   "targets": {
     "build": {
-      "executor": "@nrwl/web:rollup",
+      "executor": "@nrwl/rollup:rollup",
       "outputs": [
         "{options.outputPath}"
       ],
@@ -59,7 +60,7 @@
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/packages/headless-stepper"
+        "{workspaceRoot}/coverage/packages/headless-stepper"
       ],
       "options": {
         "jestConfig": "packages/headless-stepper/jest.config.ts",
