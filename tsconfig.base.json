@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "headless-stepper-core": ["packages/core/src/index.ts"],
       "headless-stepper": ["packages/headless-stepper/src/index.ts"]
     }
   },
