@@ -32,11 +32,11 @@
     "test": {
       "executor": "@nrwl/vite:test",
       "outputs": [
-        "{projectRoot}/coverage"
+        "coverage/packages/core"
       ],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "{workspaceRoot}/coverage/{projectRoot}"
+        "reportsDirectory": "../../coverage/packages/core"
       }
     }
   },
