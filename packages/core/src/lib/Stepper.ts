@@ -26,33 +26,37 @@ export class StepperCore {
     this._currentStep = config.currentStep || 0;
   }
 
+  /**
+   * Return the current state.
+   * @deprecated use the `getState` method instead.
+   */
   get state(): Snapshot<Stepper> {
     return snapshot(this._proxy);
   }
 
   get steps(): Readonly<Steps[]> {
-    return this.state.steps;
+    return this.getState().steps;
   }
 
   /**
    * Get the current step.
    */
   get currentStep(): Readonly<number> {
-    return this.state.currentStep || 0;
+    return this.getState().currentStep || 0;
   }
 
   /**
    * Get the total steps.
    */
   get totalSteps(): Readonly<number> {
-    return this.state.steps.length;
+    return this.getState().steps.length;
   }
 
   /**
    * Get the orientation of the stepper. Used only for the ARIA property.
    */
   get orientation(): Readonly<StepperOrientation> {
-    return this.state.orientation || 'horizontal';
+    return this.getState().orientation || 'horizontal';
   }
 
   /**
@@ -78,12 +82,17 @@ export class StepperCore {
     return this._steps.filter((step) => step.disabled);
   }
 
+  public getState(): Snapshot<Stepper> {
+    return snapshot(this._proxy);
+  }
+
   /**
    * Subscribe to the state changes.
    * @param callback function to be called when the state changes.
    */
-  public subscribe(callback: () => void): void {
-    subscribe(this._proxy, callback);
+  public subscribe(callback: () => void): () => void {
+    const sub = subscribe(this._proxy, callback);
+    return () => sub();
   }
 
   /**
@@ -92,7 +101,7 @@ export class StepperCore {
    * @returns void
    */
   public setStep(step: number): void {
-    if (step < 0 || step > this._steps.length - 1) {
+    if (step < 0 || step > this.getState().steps.length - 1) {
       return;
     }
     this._proxy.currentStep = step;
@@ -103,7 +112,7 @@ export class StepperCore {
    */
   public nextStep(): void {
     if (this._hasNextStep()) {
-      this._proxy.currentStep = (this.state.currentStep as number) + 1;
+      this._proxy.currentStep = (this.getState().currentStep as number) + 1;
     }
   }
 
@@ -112,7 +121,7 @@ export class StepperCore {
    */
   public prevStep(): void {
     if (this._hasPreviousStep()) {
-      this._proxy.currentStep = (this.state.currentStep as number) - 1;
+      this._proxy.currentStep = (this.getState().currentStep as number) - 1;
     }
   }
 

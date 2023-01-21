@@ -7,3 +7,6 @@ export * from './lib/Stepper';
 
 // Types
 export * from './lib/types';
+
+// Testing utils
+export * from './lib/utils/testUtils';

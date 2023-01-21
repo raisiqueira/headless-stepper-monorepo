@@ -106,6 +106,14 @@ describe('Stepper.ts', () => {
 
       expect(stepper.orientation).toBe('vertical');
     });
+
+    it.skip('should return the next element', () => {
+      // TODO: Add test for the next element
+    });
+
+    it.skip('should return the previous element', () => {
+      // TODO: Add test for the next element
+    });
   });
 
   describe('Stepper.ts - subscribe', () => {
@@ -123,6 +131,24 @@ describe('Stepper.ts', () => {
       await queuedMicrotasks();
 
       expect(subscribeMock).toHaveBeenCalledTimes(1);
+    });
+
+    it('should be able to unsubscribe', async () => {
+      const steps = [{ label: 'Step 1' }, { label: 'Step 2' }];
+      const stepper = new StepperCore({ steps });
+      const unsubscribe = stepper.subscribe(subscribeMock);
+      unsubscribe();
+
+      // updates in batch mode should not trigger the subscription twice.
+      // The value will be updated but the subscription will not be triggered.
+      stepper.nextStep();
+      stepper.setOrientation('vertical');
+
+      // wait for the microtasks to be executed.
+      await queuedMicrotasks();
+
+      expect(subscribeMock).not.toHaveBeenCalled();
+      expect(subscribeMock).toHaveBeenCalledTimes(0);
     });
   });
 });
