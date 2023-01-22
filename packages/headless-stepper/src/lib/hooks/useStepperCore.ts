@@ -3,8 +3,10 @@ import type { Stepper } from 'headless-stepper-core';
 import { useSyncExternalStore, useCallback, useRef } from 'react';
 
 export const unstable_useStepper = (props: Stepper) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const stepper = useRef(new StepperCore(props));
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const subscribe = useCallback((listener: () => void) => {
     return stepper.current.subscribe(listener);
   }, []);
@@ -25,6 +27,7 @@ export const unstable_useStepper = (props: Stepper) => {
     stepper.current.setOrientation(orientation);
   };
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const state = useSyncExternalStore(
     subscribe,
     () => stepper.current.getState(),
