@@ -150,7 +150,7 @@ export class StepperCore {
    * @returns boolean - true if has next step.
    */
   private _hasNextStep(): boolean {
-    return this._currentStep < this._steps.length - 1;
+    return (this.getState().currentStep as number) < this._steps.length - 1;
   }
 
   /**
@@ -159,7 +159,7 @@ export class StepperCore {
    * @returns boolean - true if has previous step.
    */
   private _hasPreviousStep(): boolean {
-    return this._currentStep > 0;
+    return (this.getState().currentStep as number) > 0;
   }
 
   private _getNextStepElement(element: HTMLElement): HTMLElement | null {

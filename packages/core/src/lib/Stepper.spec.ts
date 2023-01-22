@@ -81,9 +81,14 @@ describe('Stepper.ts', () => {
       const stepper = new StepperCore({ steps });
 
       expect(stepper.currentStep).toBe(0);
+      expect(stepper.hasNextStep).toBe(true);
+      expect(stepper.hasPreviousStep).toBe(false);
       stepper.nextStep();
       expect(stepper.currentStep).toBe(1);
       expect(nextStepSpy).toHaveBeenCalled();
+      expect(stepper.hasNextStep).toBe(false);
+      expect(stepper.hasPreviousStep).toBe(true);
+      expect(hasNextStepSpy).toHaveBeenCalled();
     });
 
     it('should navigate to the previous step through the prevStep function', () => {
@@ -91,9 +96,14 @@ describe('Stepper.ts', () => {
       const stepper = new StepperCore({ steps, currentStep: 1 });
 
       expect(stepper.currentStep).toBe(1);
+      expect(stepper.hasPreviousStep).toBe(true);
+      expect(stepper.hasNextStep).toBeFalsy();
       stepper.prevStep();
       expect(stepper.currentStep).toBe(0);
       expect(prevStepSpy).toHaveBeenCalled();
+      expect(stepper.hasNextStep).toBe(true);
+      expect(stepper.hasPreviousStep).toBe(false);
+      expect(hasPreviousStepSpy).toHaveBeenCalled();
     });
 
     it('should update the stepper orientation', () => {
