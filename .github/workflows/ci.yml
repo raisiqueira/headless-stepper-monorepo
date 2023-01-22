@@ -28,10 +28,10 @@ jobs:
         run: npm i -g pnpm
 
       - name: Lint
-        run: npm run nx run headless-stepper:lint
+        run: npm run nx affected --target=lint
 
-      - name: Test
-        run: npm run nx run headless-stepper:test
+      - name: Test Core
+        run: npm run nx affected --target=test
 
       - name: Build
         run: pnpm run build:lib
