@@ -1,5 +1,4 @@
-import { proxy, subscribe, snapshot } from 'valtio/vanilla';
-import type { INTERNAL_Snapshot as Snapshot } from 'valtio';
+import { proxy, subscribe } from 'valtio/vanilla';
 import type { Stepper, StepperOrientation, Steps } from './types';
 
 export class StepperCore {
@@ -30,8 +29,8 @@ export class StepperCore {
    * Return the current state.
    * @deprecated use the `getState` method instead.
    */
-  get state(): Snapshot<Stepper> {
-    return snapshot(this._proxy);
+  get state(): Stepper {
+    return this._proxy;
   }
 
   get steps(): Readonly<Steps[]> {
@@ -82,8 +81,8 @@ export class StepperCore {
     return this._steps.filter((step) => step.disabled);
   }
 
-  public getState(): Snapshot<Stepper> {
-    return snapshot(this._proxy);
+  public getState(): Stepper {
+    return this._proxy;
   }
 
   /**
@@ -91,8 +90,7 @@ export class StepperCore {
    * @param callback function to be called when the state changes.
    */
   public subscribe(callback: () => void): () => void {
-    const sub = subscribe(this._proxy, callback);
-    return () => sub();
+    return subscribe(this._proxy, callback);
   }
 
   /**
