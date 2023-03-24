@@ -4,13 +4,9 @@ import path from 'path';
 const p = path.join(__dirname, 'src');
 
 export default defineConfig({
+  name: 'headless-stepper',
   entry: [`${p}/index.ts`],
   outDir: path.join(__dirname, 'dist'),
-  outExtension({ format }) {
-    return {
-      js: `.${format}.js`,
-    };
-  },
   sourcemap: true,
   dts: true,
   format: ['esm', 'cjs'],
