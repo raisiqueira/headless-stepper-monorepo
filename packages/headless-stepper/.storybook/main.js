@@ -10,7 +10,7 @@ module.exports = {
     '../src/lib/**/*.stories.mdx',
     '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  addons: [...rootMain.addons],
+  addons: ['@storybook/addon-essentials', ...rootMain.addons],
   webpackFinal: async (config, { configType }) => {
     if (rootMain.webpackFinal) {
       config = await rootMain.webpackFinal(config, { configType });
