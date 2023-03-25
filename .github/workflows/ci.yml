@@ -1,5 +1,11 @@
 name: CI
 on: [push]
+
+# cancel in-progress runs on new commits to same PR (gitub.event.number)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
@@ -12,26 +18,36 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
-
-      - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+        uses: actions/checkout@v3
 
       - name: Install PNPM
-        run: npm i -g pnpm
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup Node and install project dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+          cache: 'pnpm'
 
       - name: Lint
-        run: npm run nx run headless-stepper:lint
+        run: pnpm run nx run headless-stepper:lint
 
       - name: Test
-        run: npm run nx run headless-stepper:test
+        run: pnpm run nx run headless-stepper:test
 
       - name: Build
-        run: pnpm run build:lib
+        run: pnpm run build:all

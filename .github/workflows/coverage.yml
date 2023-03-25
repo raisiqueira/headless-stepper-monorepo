@@ -1,4 +1,4 @@
-name: "Coverage"
+name: 'Coverage'
 on:
   pull_request:
     branches:
@@ -7,41 +7,40 @@ on:
 jobs:
   coverage:
     runs-on: ubuntu-22.04
+
     strategy:
       matrix:
         node: ['16.x']
         os: [ubuntu-latest]
     env:
       CI_JOB_NUMBER: 1
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Set Up Node ${{ matrix.node }}
-        uses: actions/setup-node@v3
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2.2.4
         with:
-          node-version: ${{ matrix.node }}
+          version: 7
 
-      - name: Cache npm
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: npm-
+      - run: pnpm install --frozen-lockfile
 
       - name: Cache node_modules
         uses: actions/cache@v3
-        id: cache-node-modules
+        id: pnpm-cache
         with:
-          path: |
-            node_modules
-            packages/*/node_modules
-          key: modules-${{ hashFiles('pnpm-lock.yaml') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      - name: Install PNPM
-        run: npm i -g pnpm
-
-      - name: Install dependencies
-        run: pnpm i
+      - name: Setup Node and install project dependencies
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          check-latest: true
+          cache: 'pnpm'
 
       - name: Jest coverage report
         uses: ArtiomTr/jest-coverage-report-action@v2
