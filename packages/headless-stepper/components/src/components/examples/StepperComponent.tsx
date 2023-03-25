@@ -1,4 +1,4 @@
-import { Stepper, Step } from '../components/Stepper';
+import { Stepper, Step } from '../';
 
 const StepperComponent = () => {
   return (
