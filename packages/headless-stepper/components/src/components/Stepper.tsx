@@ -1,12 +1,11 @@
 import React from 'react';
 import StepperContext from '../context';
-import { useIsomorphicId } from '../hooks/useId';
-import { useStepper } from '../hooks/useStepper';
+import { useIsomorphicId, useStepper } from 'headless-stepper';
 import type {
   PolymorphicComponentType,
   StepperOrientation,
-  Steps,
-} from '../types';
+} from 'headless-stepper';
+import type { StepComponentProps } from './Step';
 
 export type StepperComponentProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> & {
@@ -14,13 +13,6 @@ export type StepperComponentProps = React.PropsWithChildren<
     orientation?: StepperOrientation;
     as?: PolymorphicComponentType;
   }
->;
-
-export type StepComponentProps = React.PropsWithChildren<
-  React.HTMLAttributes<HTMLElement> &
-    Steps & {
-      as?: PolymorphicComponentType;
-    }
 >;
 
 const Stepper = React.forwardRef<HTMLDivElement, StepperComponentProps>(
@@ -101,28 +93,6 @@ const Stepper = React.forwardRef<HTMLDivElement, StepperComponentProps>(
   }
 );
 
-const Step = React.forwardRef<HTMLDivElement, StepComponentProps>(
-  (props, ref) => {
-    const { label, disabled, style, as, ...rest } = props;
-    const AsComponent = as || 'button';
-
-    return (
-      <AsComponent
-        ref={ref}
-        style={{
-          pointerEvents: disabled ? 'none' : 'auto',
-          opacity: disabled ? 0.5 : 1,
-          ...style,
-        }}
-        {...rest}
-      >
-        {label}
-      </AsComponent>
-    );
-  }
-);
-
 Stepper.displayName = 'Stepper.Root';
-Step.displayName = 'Stepper.Step';
 
-export { Stepper, Step };
+export { Stepper };
