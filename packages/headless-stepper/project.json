@@ -65,7 +65,8 @@
       ],
       "options": {
         "jestConfig": "packages/headless-stepper/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "codeCoverage": true
       }
     },
     "storybook": {
