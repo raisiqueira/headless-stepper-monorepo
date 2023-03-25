@@ -20,20 +20,10 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        id: pnpm-cache
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-node-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Setup Node and install project dependencies
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-          check-latest: true
           cache: 'pnpm'
 
       - uses: preactjs/compressed-size-action@v2
