@@ -59,12 +59,11 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nrwl/vite:test",
       "outputs": [
         "{workspaceRoot}/coverage/packages/headless-stepper"
       ],
       "options": {
-        "jestConfig": "packages/headless-stepper/jest.config.ts",
         "passWithNoTests": true,
         "codeCoverage": true
       }
