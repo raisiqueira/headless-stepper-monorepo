@@ -3,9 +3,10 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["jest", "node"]
+    "types": ["vitest/globals", "node"]
   },
   "include": [
+    "vite.config.ts",
     "**/*.test.ts",
     "**/*.spec.ts",
     "**/*.test.tsx",
