@@ -4,7 +4,7 @@ import '@codesandbox/sandpack-react/dist/index.css';
 
 const Sandbox = () => {
   const code = `
-  import { Stepper, Step } from 'headless-stepper';
+  import { Stepper, Step } from 'headless-stepper/components';
   import { MantineProvider, Button, Group, Container, Box } from "@mantine/core";
 
   const MyAwesomeStepper = () => {

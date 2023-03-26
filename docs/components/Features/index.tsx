@@ -51,9 +51,7 @@ const Features = () => {
               />
             </div>
             <div>
-              <div className="my-0 font-medium dark:text-white">
-                {feat?.name}
-              </div>
+              <div className="my-0 font-medium">{feat?.name}</div>
             </div>
           </div>
         );
