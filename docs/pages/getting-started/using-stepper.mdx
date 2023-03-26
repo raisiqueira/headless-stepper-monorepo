@@ -2,7 +2,7 @@
 title: Using the Stepper component
 ---
 
-import Callout from 'nextra-theme-docs/callout';
+import { Callout } from 'nextra-theme-docs';
 import StepperBasicExample from '../../components/examples/StepperBasic';
 import StepperWithAsProps from '../../components/examples/StepperWithAsProps';
 
@@ -20,8 +20,8 @@ The `Stepper` component is a wrapper around the `useStepper` hook. It takes the 
 
 Let's build a simple stepper that has 3 steps.
 
-```jsx
-import { Stepper, Step } from 'headless-stepper';
+```jsx {1, 5}
+import { Stepper, Step } from 'headless-stepper/components';
 
 const MyAwesomeStepper = () => {
   return (
@@ -41,8 +41,8 @@ export default MyAwesomeStepper;
 As we can see, is easy to build a simple wizard. But, we can do better. Let's improve the stepper by adding a _disabled_ step.
 The `Stepper` component will automatically disable the steps that are not reachable.
 
-```jsx
-import { Stepper, Step } from 'headless-stepper';
+```jsx {8}
+import { Stepper, Step } from 'headless-stepper/components';
 
 const MyAwesomeStepper = () => {
   return (
@@ -73,8 +73,8 @@ Both the `Stepper` and `Step` components have an `as` prop. This prop is used to
 
 Let's improve the stepper by using the `as` prop to render a group of steps. To do this, we will use the [Mantine UI](https://mantine.dev/) as UI library.
 
-```jsx
-import { Stepper, Step } from 'headless-stepper';
+```jsx {8,9, 13, 17}
+import { Stepper, Step } from 'headless-stepper/components';
 import { MantineProvider, Button, Group, Container, Box } from '@mantine/core';
 
 const MyAwesomeStepper = () => {
