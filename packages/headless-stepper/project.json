@@ -18,6 +18,7 @@
         "project": "packages/headless-stepper/package.json",
         "entryFile": "packages/headless-stepper/src/index.ts",
         "external": [
+          "react",
           "react/jsx-runtime"
         ],
         "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
@@ -58,13 +59,13 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nrwl/vite:test",
       "outputs": [
         "{workspaceRoot}/coverage/packages/headless-stepper"
       ],
       "options": {
-        "jestConfig": "packages/headless-stepper/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "codeCoverage": true
       }
     },
     "storybook": {
@@ -72,9 +73,7 @@
       "options": {
         "uiFramework": "@storybook/react",
         "port": 4400,
-        "config": {
-          "configFolder": "packages/headless-stepper/.storybook"
-        }
+        "configDir": "packages/headless-stepper/.storybook"
       },
       "configurations": {
         "ci": {
@@ -85,14 +84,12 @@
     "build-storybook": {
       "executor": "@nrwl/storybook:build",
       "outputs": [
-        "{options.outputPath}"
+        "{options.outputDir}"
       ],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/headless-stepper",
-        "config": {
-          "configFolder": "packages/headless-stepper/.storybook"
-        }
+        "configDir": "packages/headless-stepper/.storybook",
+        "outputDir": "dist/storybook/headless-stepper"
       },
       "configurations": {
         "ci": {

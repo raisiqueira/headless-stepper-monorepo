@@ -1,10 +1,9 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-
-import * as S from './Stepper';
+import * as S from '.';
 import StepperContext from '../context';
-import { act } from 'react-dom/test-utils';
 
 const StepToBeAsComponent = React.forwardRef((props, ref) => {
   return <button {...props} />;

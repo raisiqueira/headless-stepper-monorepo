@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "headless-stepper": "packages/headless-stepper",
-    "headless-stepper-e2e": "packages/headless-stepper-e2e"
-  },
-  "$schema": "./node_modules/nx/schemas/workspace-schema.json"
-}

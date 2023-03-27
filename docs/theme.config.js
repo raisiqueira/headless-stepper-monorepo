@@ -1,19 +1,18 @@
 // eslint-disable-next-line import/no-anonymous-default-export
+/** @type {import('nextra-theme-docs').DocsThemeConfig} */
 export default {
-  projectLink: 'https://github.com/raisiqueira/headless-stepper-monorepo',
+  project: {
+    link: 'https://github.com/raisiqueira/headless-stepper-monorepo',
+  },
   docsRepositoryBase:
     'https://github.com/raisiqueira/headless-stepper-monorepo/tree/main/docs/pages',
-  titleSuffix: ' – Headless Stepper',
-  nextLinks: true,
-  prevLinks: true,
-  search: true,
-  customSearch: null, // customizable, you can use algolia for example
   darkMode: true,
-  footer: true,
-  footerText: `MIT ${new Date().getFullYear()} © Raí Siqueira.`,
-  footerEditLink: `Edit this page on GitHub`,
-  unstable_stork: false,
-  unstable_flexsearch: true,
+  footer: {
+    text: `MIT ${new Date().getFullYear()} © Raí Siqueira.`,
+  },
+  editLink: {
+    text: 'Edit this page on GitHub',
+  },
   logo: () => (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">
@@ -34,4 +33,28 @@ export default {
       />
     </>
   ),
+  useNextSeoProps: () => ({
+    titleTemplate: '%s | Headless Stepper',
+    defaultTitle: 'Headless Stepper',
+    description:
+      'Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.',
+    canonical: 'https://headless-stepper.netlify.app',
+    openGraph: {
+      url: 'https://headless-stepper.netlify.app',
+      title: 'Headless Stepper',
+      description:
+        'Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.',
+      images: [
+        {
+          url: 'https://headless-stepper.netlify.app/GH_Cover.png',
+          alt: 'Headless Stepper og-image',
+        },
+      ],
+      site_name: 'Headless Stepper',
+    },
+    twitter: {
+      handle: '@rai_siqueira',
+      cardType: 'summary_large_image',
+    },
+  }),
 };

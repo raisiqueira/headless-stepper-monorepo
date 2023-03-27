@@ -1,0 +1,13 @@
+{
+  "name": "headless-stepper/components",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "headless-stepper": "^1.8.0"
+  }
+}

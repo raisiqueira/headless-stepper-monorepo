@@ -37,7 +37,7 @@ The headless-stepper library provide two ways to build your stepper component:
 To use the `Stepper` and `Step` components, you need to import the `Stepper` and `Step` components from the `headless-stepper` library.
 
 ```tsx
-import { Stepper, Step } from 'headless-stepper';
+import { Stepper, Step } from 'headless-stepper/components';
 
 const MyAwesomeStepper = () => {
   return (
