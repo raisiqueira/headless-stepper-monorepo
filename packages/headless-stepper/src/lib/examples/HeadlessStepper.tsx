@@ -25,6 +25,7 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
     });
   return (
     <div className={styles['container']}>
+      <h1>Welcome to HeadlessStepper!</h1>
       <div>
         <nav style={{ display: 'flex' }} {...stepperProps}>
           {stepsProps?.map((step, index) => (
