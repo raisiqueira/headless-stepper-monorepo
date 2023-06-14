@@ -177,7 +177,7 @@ const useStepper = ({
         'aria-current': index === _currentStep ? 'step' : undefined,
         'aria-selected': index === _currentStep,
         onKeyDown: (event) => handleKeydown(event, index),
-        onClick: () => setCurrentStep(index),
+        onClick: () => (step.disabled ? null : setCurrentStep(index)),
         ref: (element: HTMLElement) =>
           (stepElementsRef.current[index] = element),
       } as HTMLAttributes<HTMLElement>;
