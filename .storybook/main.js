@@ -6,4 +6,11 @@ module.exports = {
   // webpackFinal: async (config, { configType }) => {
   //   return config;
   // },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
+  },
+  docs: {
+    autodocs: false,
+  },
 };

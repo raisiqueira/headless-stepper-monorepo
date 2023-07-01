@@ -1,14 +1,12 @@
 {
   "presets": [
     [
-      "@nrwl/react/babel",
+      "@nx/react/babel",
       {
         "runtime": "automatic",
         "useBuiltIns": "usage"
       }
     ]
   ],
-  "plugins": [
-    ["babel-plugin-optimize-clsx", { "libraries": ["clsx"]}]
-  ]
+  "plugins": [["babel-plugin-optimize-clsx", { "libraries": ["clsx"] }]]
 }

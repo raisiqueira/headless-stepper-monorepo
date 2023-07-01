@@ -127,7 +127,7 @@ The Storybook will be available on the localhost:4400 and refresh when you chang
 
 ### Running unit tests
 
-Run `nx test headless-stepper` to execute the unit tests via [Jest](https://jestjs.io).
+Run `nx test headless-stepper` to execute the unit tests via [Vitest](https://vitest.dev).
 
 ## Sponsors
 

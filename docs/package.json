@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^0.15.0",
+    "@codesandbox/sandpack-react": "^2.6.9",
     "next": "13.2.4",
     "next-seo": "^5.1.0",
     "nextra": "^2.2.20",
