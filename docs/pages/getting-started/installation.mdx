@@ -2,28 +2,29 @@
 title: Installation
 ---
 
-import { Callout } from 'nextra-theme-docs';
+import { Callout, Tabs, Tab } from 'nextra-theme-docs';
 
 # Installation
 
 You can install using [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/en/docs/install) or [PNPM](https://pnpm.io/).
 
-Headless Stepper is compatible with **React 16.8.0** and up.
+Headless Stepper is compatible with **React 16.8.0** and up
 
-## NPM
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tab>
+  ```bash
+  npm run dev
+  ```
+  </Tab>
+  <Tab>
+  ```bash
+  yarn dev
+  ```
+</Tab>
 
-```bash
-npm install --save headless-stepper
-```
-
-## Yarn
-
-```bash
-yarn add headless-stepper
-```
-
-## PNPM
-
-```bash
-pnpm install --save headless-stepper
-```
+  <Tab>
+  ```bash
+  pnpm dev
+  ```
+  </Tab>
+</Tabs>
