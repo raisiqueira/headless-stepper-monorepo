@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sandpack } from '@codesandbox/sandpack-react';
+import { CustomSandBox } from '../CustomSandBox';
 
 const Sandbox = () => {
   const code = `
@@ -51,15 +51,10 @@ const Sandbox = () => {
     );
   }`;
   return (
-    <Sandpack
-      template="react-ts"
+    <CustomSandBox
       customSetup={{ dependencies: { 'headless-stepper': 'next' } }}
       files={{
         '/App.tsx': code,
-      }}
-      options={{
-        showNavigator: true,
-        showTabs: true,
       }}
     />
   );
