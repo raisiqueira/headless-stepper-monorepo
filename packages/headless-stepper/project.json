@@ -3,30 +3,20 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/headless-stepper/src",
   "projectType": "library",
-  "tags": [
-    "library"
-  ],
+  "tags": ["library"],
   "targets": {
     "build": {
       "executor": "@nrwl/rollup:rollup",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/packages/headless-stepper",
         "tsConfig": "packages/headless-stepper/tsconfig.lib.json",
         "project": "packages/headless-stepper/package.json",
         "entryFile": "packages/headless-stepper/src/index.ts",
-        "external": [
-          "react",
-          "react/jsx-runtime"
-        ],
-        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "external": ["react", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
         "compiler": "babel",
-        "format": [
-          "esm",
-          "cjs"
-        ],
+        "format": ["esm", "cjs"],
         "generateExportsField": true,
         "assets": [
           {
@@ -48,30 +38,23 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "packages/headless-stepper/**/*.{ts,tsx,js,jsx}"
-        ]
+        "lintFilePatterns": ["packages/headless-stepper/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
-      "executor": "@nrwl/vite:test",
-      "outputs": [
-        "{workspaceRoot}/coverage/packages/headless-stepper"
-      ],
+      "executor": "@nx/vite:test",
+      "outputs": ["{workspaceRoot}/coverage/packages/headless-stepper"],
       "options": {
         "passWithNoTests": true,
         "codeCoverage": true
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@nx/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/react",
         "port": 4400,
         "configDir": "packages/headless-stepper/.storybook"
       },
@@ -82,12 +65,9 @@
       }
     },
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": [
-        "{options.outputDir}"
-      ],
+      "executor": "@nx/storybook:build",
+      "outputs": ["{options.outputDir}"],
       "options": {
-        "uiFramework": "@storybook/react",
         "configDir": "packages/headless-stepper/.storybook",
         "outputDir": "dist/storybook/headless-stepper"
       },
