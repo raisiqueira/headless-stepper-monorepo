@@ -21,7 +21,6 @@
     "**/*.stories.js",
     "**/*.stories.jsx",
     "**/*.stories.tsx",
-    "jest.config.ts",
     "src/lib/components/**",
     "src/lib/examples/**",
     "src/lib/context/**"
