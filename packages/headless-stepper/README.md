@@ -131,7 +131,7 @@ Run `nx test headless-stepper` to execute the unit tests via [Vitest](https://vi
 
 ## Sponsors
 
-[![Sponsors](https://cdn.jsdelivr.net/gh/raisiqueira/static/sponsors.svg)](https://headless-stepper.netlify.app/sponsors)
+[![Sponsors](https://cdn.jsdelivr.net/gh/raisiqueira/static@master/sponsors.svg)](https://github.com/sponsors/raisiqueira)
 
 ## License
 
