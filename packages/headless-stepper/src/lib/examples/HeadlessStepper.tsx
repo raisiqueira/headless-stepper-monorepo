@@ -29,7 +29,13 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
       <div>
         <nav style={{ display: 'flex' }} {...stepperProps}>
           {stepsProps?.map((step, index) => (
-            <ol key={index}>
+            <ol
+              key={index}
+              style={{
+                opacity: steps[index].disabled ? 0.6 : 1,
+                fontWeight: state.currentStep === index ? 'bold' : 'unset',
+              }}
+            >
               <a {...step}>{steps[index].label}</a>
             </ol>
           ))}
@@ -51,6 +57,9 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
         Next
       </button>
       <div className="bg-gray-400 w-100% h-1/2" {...progressProps} />
+      <pre>
+        <code>{JSON.stringify(state, null, 2)}</code>
+      </pre>
     </div>
   );
 }

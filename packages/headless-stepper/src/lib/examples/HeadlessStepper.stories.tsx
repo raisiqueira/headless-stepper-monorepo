@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import { HeadlessStepper, HeadlessStepperProps } from './HeadlessStepper';
 
 export default {
@@ -6,7 +6,7 @@ export default {
   title: 'HeadlessStepper/useStepper',
 } as Meta;
 
-const Template: Story<HeadlessStepperProps> = (args) => (
+const Template: StoryFn<HeadlessStepperProps> = (args) => (
   <HeadlessStepper {...args} />
 );
 

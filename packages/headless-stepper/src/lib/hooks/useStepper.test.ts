@@ -11,6 +11,19 @@ const steps: Steps[] = [
   },
 ];
 
+const disabledSteps = [
+  {
+    label: 'step 01',
+  },
+  {
+    label: 'step 02',
+    disabled: true,
+  },
+  {
+    label: 'step 03',
+  },
+];
+
 describe('useStepper', () => {
   it('should start with 0 as current step and dont have previous step', () => {
     const { result } = renderHook(({ steps }) => useStepper({ steps }), {
@@ -84,5 +97,43 @@ describe('useStepper', () => {
 
     expect(result?.current?.state?.currentStep).toBe(3);
     expect(result?.current?.state?.hasPreviousStep).toBeTruthy();
+  });
+
+  it('should skip the disabled step when use the nextStep fn', async () => {
+    const { result } = renderHook(
+      ({ steps, currentStep }) =>
+        useStepper({
+          steps,
+          currentStep,
+        }),
+      { initialProps: { steps: disabledSteps, currentStep: 0 } }
+    );
+
+    expect(result?.current?.state?.currentStep).toBe(0);
+
+    act(() => {
+      result.current?.nextStep();
+    });
+
+    expect(result?.current?.state?.currentStep).toBe(2);
+  });
+
+  it('should skip the disabled step and go back to the previous step', async () => {
+    const { result } = renderHook(
+      ({ steps, currentStep }) =>
+        useStepper({
+          steps,
+          currentStep, // start from the last step.
+        }),
+      { initialProps: { steps: disabledSteps, currentStep: 2 } }
+    );
+
+    expect(result?.current?.state?.currentStep).toBe(2);
+
+    act(() => {
+      result.current?.prevStep();
+    });
+
+    expect(result?.current?.state?.currentStep).toBe(0);
   });
 });

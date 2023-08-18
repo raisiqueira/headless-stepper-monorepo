@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "headless-stepper": ["packages/headless-stepper/src/index.ts"]
+      "headless-stepper": ["packages/headless-stepper/src/index.ts"],
+      "headless-stepper/components": ["packages/headless-stepper/components/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
