@@ -78,16 +78,44 @@ const useStepper = ({
   hasNextStep.current = _currentStep < steps.length - 1;
 
   // Handlers
+  const guessNextAvailableStep = React.useCallback(
+    (currentIndex: number): number => {
+      const nextStep = steps[currentIndex + 1];
+      const isNextStepDisabled = nextStep?.disabled;
+      if (isNextStepDisabled) {
+        return guessNextAvailableStep(currentIndex + 1);
+      }
+      return currentIndex + 1;
+    },
+    [steps]
+  );
+
+  const guessPreviousAvailableStep = React.useCallback(
+    (currentIndex: number) => {
+      const previousStep = steps[currentIndex - 1];
+      const isPreviousStepDisabled = previousStep?.disabled;
+      if (isPreviousStepDisabled) {
+        return guessPreviousAvailableStep(currentIndex - 1);
+      }
+      return currentIndex - 1;
+    },
+    [steps]
+  );
+
   const nextStep = React.useCallback(() => {
     if (_currentStep === steps?.length - 1) return;
 
-    setCurrentStep((currentStep) => currentStep + 1);
-  }, [_currentStep, steps]);
+    setCurrentStep((currentStep) => {
+      return guessNextAvailableStep(currentStep);
+    });
+  }, [_currentStep, guessNextAvailableStep, steps?.length]);
 
   const prevStep = React.useCallback(() => {
     if (_currentStep === 0) return;
-    setCurrentStep((currentStep) => currentStep - 1);
-  }, [_currentStep]);
+    setCurrentStep((currentStep) => {
+      return guessPreviousAvailableStep(currentStep);
+    });
+  }, [_currentStep, guessPreviousAvailableStep]);
 
   const _getNextArrayItem = (el: HTMLElement) => {
     const currentIndex = stepElementsRef.current.indexOf(el);

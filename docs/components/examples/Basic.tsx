@@ -30,7 +30,13 @@ const Sandbox = () => {
         <div>
           <nav style={{ display: 'flex' }} {...stepperProps}>
             {stepsProps?.map((step, index) => (
-              <ol key={index}>
+              <ol
+                key={index}
+                style={{
+                  opacity: steps[index].disabled ? 0.6 : 1,
+                  fontWeight: state.currentStep === index ? 'bold' : 'unset',
+                }}
+              >
                 <a {...step}>{steps[index].label}</a>
               </ol>
             ))}
