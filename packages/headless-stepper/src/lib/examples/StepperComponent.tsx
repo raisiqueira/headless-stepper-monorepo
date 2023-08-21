@@ -1,6 +1,6 @@
-// eslint-disable-next-line @nx/enforce-module-boundaries
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { Stepper, Step } from 'headless-stepper/components';
-// TODO: Fix the line above. It should avoid circular dependencies.
 
 const StepperComponent = () => {
   return (

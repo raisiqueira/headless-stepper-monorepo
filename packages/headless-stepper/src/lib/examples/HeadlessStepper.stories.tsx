@@ -10,5 +10,5 @@ const Template: StoryFn<HeadlessStepperProps> = (args) => (
   <HeadlessStepper {...args} />
 );
 
-export const useStepper = Template.bind({});
-useStepper.args = {};
+export const UseStepper = Template.bind({});
+UseStepper.args = {};
