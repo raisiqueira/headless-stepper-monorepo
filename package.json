@@ -17,7 +17,8 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "test": "nx test headless-stepper",
-    "test:watch": "npm run nx run headless-stepper:test -- --watch"
+    "test:watch": "npm run nx run headless-stepper:test -- --watch",
+    "local-registry": "nx run local-registry"
   },
   "private": true,
   "devDependencies": {
@@ -78,6 +79,7 @@
     "tsup": "^7.1.0",
     "typescript": "5.1.6",
     "url-loader": "^4.1.1",
+    "verdaccio": "^5.0.4",
     "vite": "4.3.9",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.31.4",
@@ -103,5 +105,8 @@
       "path": "packages/headless-stepper/dist/index.mjs",
       "limit": "15 KB"
     }
-  ]
+  ],
+  "nx": {
+    "includedScripts": []
+  }
 }
