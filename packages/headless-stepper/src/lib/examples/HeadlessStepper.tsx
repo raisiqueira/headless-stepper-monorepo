@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStepper } from '../hooks/useStepper';
-import styles from './HeadlessStepper.module.css';
 
 /* eslint-disable-next-line */
 export interface HeadlessStepperProps {}
@@ -24,7 +23,7 @@ export function HeadlessStepper(props: HeadlessStepperProps) {
       steps,
     });
   return (
-    <div className={styles['container']}>
+    <div>
       <h1>Welcome to HeadlessStepper!</h1>
       <div>
         <nav style={{ display: 'flex' }} {...stepperProps}>
