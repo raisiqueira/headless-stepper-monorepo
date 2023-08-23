@@ -18,7 +18,9 @@
     "analyze": "size-limit --why",
     "test": "nx test headless-stepper",
     "test:watch": "npm run nx run headless-stepper:test -- --watch",
-    "local-registry": "nx run local-registry"
+    "local-registry": "nx run local-registry",
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish"
   },
   "private": true,
   "devDependencies": {
@@ -90,6 +92,7 @@
     "packages/**"
   ],
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "core-js": "^3.6.5",
     "next": "^13.1.1",
     "react": "18.2.0",
