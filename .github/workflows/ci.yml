@@ -1,9 +1,9 @@
 name: CI
 on: [push]
 
-# cancel in-progress runs on new commits to same PR (gitub.event.number)
+# Automatically cancel in-progress actions on the same branch
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
   cancel-in-progress: true
 
 jobs:
