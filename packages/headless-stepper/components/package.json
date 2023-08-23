@@ -9,5 +9,6 @@
   ],
   "peerDependencies": {
     "headless-stepper": "latest"
-  }
+  },
+  "private": true
 }
