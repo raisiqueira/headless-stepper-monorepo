@@ -8,6 +8,7 @@
     "dist"
   ],
   "peerDependencies": {
-    "headless-stepper": "^1.8.0"
-  }
+    "headless-stepper": "latest"
+  },
+  "private": true
 }

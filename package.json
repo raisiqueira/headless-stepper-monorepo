@@ -17,7 +17,10 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "test": "nx test headless-stepper",
-    "test:watch": "npm run nx run headless-stepper:test -- --watch"
+    "test:watch": "npm run nx run headless-stepper:test -- --watch",
+    "local-registry": "nx run local-registry",
+    "ci:version": "changeset version",
+    "ci:publish": "changeset publish"
   },
   "private": true,
   "devDependencies": {
@@ -78,6 +81,7 @@
     "tsup": "^7.1.0",
     "typescript": "5.1.6",
     "url-loader": "^4.1.1",
+    "verdaccio": "^5.0.4",
     "vite": "4.3.9",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "0.31.4",
@@ -88,6 +92,7 @@
     "packages/**"
   ],
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "core-js": "^3.6.5",
     "next": "^13.1.1",
     "react": "18.2.0",
@@ -103,5 +108,8 @@
       "path": "packages/headless-stepper/dist/index.mjs",
       "limit": "15 KB"
     }
-  ]
+  ],
+  "nx": {
+    "includedScripts": []
+  }
 }

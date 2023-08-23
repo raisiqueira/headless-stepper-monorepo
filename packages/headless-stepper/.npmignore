@@ -2,3 +2,6 @@ project.json
 .storybook/
 src/lib/examples/*
 .eslintrc.json
+components/tsup.config.ts
+components/scripts/*
+components/src/*
