@@ -30,7 +30,7 @@ jobs:
           cache: 'pnpm'
       - if: ${{ steps.cache-node.outputs.cache-hit != 'true' }}
         run: pnpm install
-      - run: pnpm run build
+      - run: pnpm run build:all
       - uses: changesets/action@v1
         if: ${{ github.event_name != 'pull_request' }}
         with:
