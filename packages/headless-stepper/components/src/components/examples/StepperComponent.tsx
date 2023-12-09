@@ -1,4 +1,4 @@
-import { Stepper, Step } from '../';
+import { Stepper, Step, StepComponentProps } from '../';
 
 const StepperComponent = () => {
   return (
@@ -17,3 +17,5 @@ const StepperComponent = () => {
 };
 
 export default StepperComponent;
+
+export { StepComponentProps };
