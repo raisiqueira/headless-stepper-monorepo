@@ -37,13 +37,12 @@
     "@nx/vite": "17.2.0",
     "@nx/web": "17.2.0",
     "@nx/workspace": "17.2.0",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@size-limit/preset-big-lib": "^7.0.8",
     "@storybook/addon-essentials": "7.6.4",
+    "@storybook/builder-vite": "^7.6.4",
     "@storybook/core-server": "7.6.4",
     "@storybook/react": "7.6.4",
-    "@storybook/react-webpack5": "7.6.4",
-    "@svgr/webpack": "^6.1.2",
+    "@storybook/react-vite": "^7.6.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.4.0",
     "@types/node": "18.11.9",
@@ -84,9 +83,7 @@
     "verdaccio": "^5.0.4",
     "vite": "^5.0.0",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.34.6",
-    "webpack": "^5.75.0",
-    "webpack-merge": "^5.8.0"
+    "vitest": "0.34.6"
   },
   "workspaces": [
     "packages/**"
