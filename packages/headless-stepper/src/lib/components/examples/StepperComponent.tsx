@@ -1,4 +1,4 @@
-import { Stepper, Step, StepComponentProps } from '../';
+import { Stepper, Step, StepComponentProps } from '..';
 
 const StepperComponent = () => {
   return (

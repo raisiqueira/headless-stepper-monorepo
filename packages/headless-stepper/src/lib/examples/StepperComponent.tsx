@@ -1,5 +1,5 @@
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { Stepper, Step } from '../../../components/src/components';
+import { Stepper, Step } from '../components';
 
 const StepperComponent = () => {
   return (
