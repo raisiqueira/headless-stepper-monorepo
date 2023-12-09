@@ -58,5 +58,8 @@
       "default": "./dist/components.mjs"
     }
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "publishConfig": {
+    "provenance": true
+  }
 }
