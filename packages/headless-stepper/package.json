@@ -1,8 +1,7 @@
 {
   "name": "headless-stepper",
   "description": "Production ready React hook to create awesome stepper components. Effortless to use, easy to customize.",
-  "version": "1.10.0",
-  "type": "module",
+  "version": "1.10.0-beta.1",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

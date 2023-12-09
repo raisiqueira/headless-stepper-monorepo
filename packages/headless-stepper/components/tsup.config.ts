@@ -10,7 +10,8 @@ export default defineConfig({
   sourcemap: true,
   dts: true,
   format: ['esm', 'cjs'],
-  external: ['react'],
+  external: ['react', 'react-dom'],
   clean: true,
-  onSuccess: path.join(__dirname, 'scripts', 'post-build.sh'),
+  tsconfig: path.join(__dirname, '../tsconfig.lib.json'),
+  // onSuccess: path.join(__dirname, 'scripts', 'post-build.sh'),
 });
