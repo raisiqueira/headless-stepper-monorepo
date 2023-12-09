@@ -1,1 +1,3 @@
 node_modules
+packages/headless-stepper/dist
+packages/headless-stepper/components/dist
