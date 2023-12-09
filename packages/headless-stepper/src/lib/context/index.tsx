@@ -1,5 +1,5 @@
 import React from 'react';
-import type { UseStepper } from 'headless-stepper';
+import type { UseStepper } from '../hooks/useStepper';
 
 /**
  * Context for the stepper.

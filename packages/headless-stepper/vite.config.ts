@@ -17,8 +17,5 @@ export default defineConfig({
     include: [
       '{src,components}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
     ],
-    coverage: {
-      reporters: ['json', 'text'],
-    },
   },
 });

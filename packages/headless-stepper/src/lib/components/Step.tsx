@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PolymorphicComponentType, Steps } from 'headless-stepper';
+import type { PolymorphicComponentType, Steps } from '../types';
 
 export type StepComponentProps = React.PropsWithChildren<
   React.HTMLAttributes<HTMLElement> &

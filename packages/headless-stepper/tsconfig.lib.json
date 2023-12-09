@@ -25,5 +25,5 @@
     "src/lib/examples/**",
     "src/lib/context/**"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "vite.config.ts"]
 }

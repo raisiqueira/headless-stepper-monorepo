@@ -1,10 +1,8 @@
 import React from 'react';
 import StepperContext from '../context';
-import { useIsomorphicId, useStepper } from 'headless-stepper';
-import type {
-  PolymorphicComponentType,
-  StepperOrientation,
-} from 'headless-stepper';
+import { useStepper } from '../hooks/useStepper';
+import { useIsomorphicId } from '../hooks/useId';
+import type { PolymorphicComponentType, StepperOrientation } from '../types';
 import type { StepComponentProps } from './Step';
 
 export type StepperComponentProps = React.PropsWithChildren<

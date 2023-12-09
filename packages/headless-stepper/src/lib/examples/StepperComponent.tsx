@@ -1,6 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import { Stepper, Step } from 'headless-stepper/components';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import { Stepper, Step } from '../components';
 
 const StepperComponent = () => {
   return (
