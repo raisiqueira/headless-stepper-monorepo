@@ -4,6 +4,7 @@ import StepperComponent, { StepComponentProps } from './StepperComponent';
 export default {
   component: StepperComponent,
   title: 'HeadlessStepper/StepperComponent',
+  id: 'StepperComponent',
 } as Meta;
 
 const Template: StoryFn<StepComponentProps> = (args) => (
