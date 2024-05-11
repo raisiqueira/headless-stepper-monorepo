@@ -1,8 +1,5 @@
 {
   "extends": "nx/presets/core.json",
-  "affected": {
-    "defaultBase": "main"
-  },
   "generators": {
     "@nrwl/next": {
       "application": {
@@ -44,6 +41,10 @@
     "@nx/vite:test": {
       "inputs": ["default", "^production"],
       "cache": true
+    },
+    "@nx/eslint:lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "cache": true
     }
   },
   "pluginsConfig": {
@@ -63,5 +64,7 @@
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/tsconfig.storybook.json"
     ]
-  }
+  },
+  "useInferencePlugins": false,
+  "defaultBase": "main"
 }
